@@ -1,0 +1,97 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('background.jpg'); /* Добавьте красивое фоновое изображение */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон для контейнера */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #fff;
+}
+
+.main-counter {
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.zikr-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.zikr-button {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffdd57; /* Золотистый цвет для текста зикра */
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    user-select: none;
+}
+
+.zikr-button:active {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.total-counter {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 18px;
+    color: #ccc;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.reset-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+#reset {
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #dc3545;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+#reset:hover {
+    background-color: #c82333;
+}
