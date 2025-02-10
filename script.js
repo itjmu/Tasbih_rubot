@@ -1,54 +1,69 @@
 const zikrList = [
-    "Субханаллах", // 33 раза
-    "Альхамдулиллях", // 33 раза
-    "Аллаху Акбар", // 33 раза
-    "Ля иляха илляллах" // 34 раза (в конце)
+    "Субханаллах",
+    "Альхамдулиллях",
+    "Аллаху Акбар",
+    "Ля иляха илляллах"
 ];
 
-let currentZikrIndex = 0;
-let count = 0;
-let totalCount = 0;
+// Загрузка данных из localStorage
+let savedData = JSON.parse(localStorage.getItem('tasbihData')) || {
+    currentZikrIndex: 0,
+    count: 0,
+    totalCount: 0
+};
+
+let currentZikrIndex = savedData.currentZikrIndex;
+let count = savedData.count;
+let totalCount = savedData.totalCount;
 
 const zikrTextElement = document.getElementById('zikr-text');
 const countElement = document.getElementById('count');
 const totalCountElement = document.getElementById('total-count');
 const resetButton = document.getElementById('reset');
 
-// Функция для обновления текста зикра
+// Функция для сохранения данных
+function saveData() {
+    localStorage.setItem('tasbihData', JSON.stringify({
+        currentZikrIndex: currentZikrIndex,
+        count: count,
+        totalCount: totalCount
+    }));
+}
+
 function updateZikr() {
     zikrTextElement.textContent = zikrList[currentZikrIndex];
 }
 
-// Функция для увеличения счётчика
 function incrementCounter() {
     count++;
     totalCount++;
+    
     countElement.textContent = count;
     totalCountElement.textContent = totalCount;
+    saveData(); // Сохраняем после изменения
 
-    // Если счётчик достиг 33, переключаем на следующий зикр
     if (count === 33) {
-        currentZikrIndex++;
-        if (currentZikrIndex >= zikrList.length) {
-            currentZikrIndex = 0; // Возвращаемся к первому зикру
-        }
+        currentZikrIndex = (currentZikrIndex + 1) % zikrList.length;
+        count = 0;
         updateZikr();
-        count = 0; // Сбрасываем счётчик для нового зикра
+        saveData(); // Дополнительное сохранение
     }
 }
 
-// Функция для сброса основного счётчика
 function resetCounter() {
     count = 0;
+    currentZikrIndex = 0;
     countElement.textContent = count;
     updateZikr();
+    saveData();
 }
 
-// Обработчик клика по кнопке зикра
+// Инициализация при загрузке
+document.addEventListener('DOMContentLoaded', () => {
+    countElement.textContent = count;
+    totalCountElement.textContent = totalCount;
+    updateZikr();
+});
+
 zikrTextElement.addEventListener('click', incrementCounter);
-
-// Обработчик клика по кнопке "Сбросить"
 resetButton.addEventListener('click', resetCounter);
-
-// Инициализация при загрузке страницы
-updateZikr();
