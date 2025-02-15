@@ -104,9 +104,10 @@ body {
     color: #4CAF50;                             /* Цвет текста */
     font-weight: bold;
     text-shadow: 0 0 10px rgba(76,175,80,0.5);  /* Тень текста */
-    bottom: 200px;                              /* Позиция текста */
-margin-left: 100px;   /* Сдвиг влево */
-margin-top: 10px;     /* Сдвиг вверх */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: auto;
     transition: font-size 0.2s;                 /* Анимация текста */
 
 }
