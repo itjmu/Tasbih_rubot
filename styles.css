@@ -47,11 +47,11 @@ body {
 /* ########## ОСНОВНОЙ ИНДИКАТОР ########## */
 .main-progress-container {
     width: 80%; /* Ширина индикатора */
-    margin-bottom: 50px; /* Отступ снизу */
+    margin-bottom: 100px; /* Отступ снизу */
 }
 
 .main-progress-bar {
-    height: 30px; /* Высота индикатора */
+    height: 50px; /* Высота индикатора */
     background: rgba(255,255,255,0.1); /* Цвет фона */
     border-radius: 15px; /* Скругление углов */
     position: relative;
@@ -70,7 +70,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 18px; /* Размер текста */
+    font-size: 20px; /* Размер текста */
     font-weight: bold;
 }
 
