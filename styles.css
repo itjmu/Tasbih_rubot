@@ -15,8 +15,8 @@ body {
 /* ########## ОСНОВНОЙ КОНТЕЙНЕР ########## */
 .container {
     width: 100%;                                 /* Ширина контейнера */
-    max-width: 600px;                           /* Максимальная ширина */
-    padding: 1px;                              /* Внутренние отступы */
+    max-width: 590px;                           /* Максимальная ширина */
+    padding: 0px;                              /* Внутренние отступы */
     background: rgba(0,0,0,0.50);               /* Цвет фона */
     border-radius: 10px;                        /* Скругление углов */
     margin: 10px;
@@ -60,9 +60,9 @@ body {
 }
 
 .main-progress-bar {
-    height: 50px;                               /* Высота индикатора */
+    height: 60px;                               /* Высота индикатора */
     background: rgba(255,255,255,0.1);          /* Цвет фона */
-    border-radius: 30px;                        /* Скругление углов */
+    border-radius: 20px;                        /* Скругление углов */
     position: relative;
     overflow: hidden;
 }
@@ -92,7 +92,7 @@ body {
 }
 
 .zikr-button {
-    font-size: 300px;                           /* Размер эмодзи */
+    font-size: 250px;                           /* Размер эмодзи */
     cursor: pointer;
     transition: transform 0.2s;                 /* Анимация нажатия */
     position: relative;
@@ -105,8 +105,8 @@ body {
     font-weight: bold;
     text-shadow: 0 0 10px rgba(76,175,80,0.5);  /* Тень текста */
     bottom: 200px;                              /* Позиция текста */
-margin-left: -30px;   /* Сдвиг влево */
-margin-top: 10px;     /* Сдвиг вверх */
+margin-left: 40px;   /* Сдвиг влево */
+margin-top: 15px;     /* Сдвиг вверх */
     transition: font-size 0.2s;                 /* Анимация текста */
 
 }
