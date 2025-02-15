@@ -15,11 +15,11 @@ body {
 /* ########## ОСНОВНОЙ КОНТЕЙНЕР ########## */
 .container {
     width: 98%;                                 /* Ширина контейнера */
-    max-width: 550px;                           /* Максимальная ширина */
-    padding: 10px;                              /* Внутренние отступы */
+    max-width: 560px;                           /* Максимальная ширина */
+    padding: 5px;                              /* Внутренние отступы */
     background: rgba(0,0,0,0.50);               /* Цвет фона */
     border-radius: 10px;                        /* Скругление углов */
-    margin: 20px;
+    margin: 10px;
 }
 
 /* ########## ИНДИКАТОР УРОВНЯ ########## */
@@ -29,9 +29,9 @@ body {
 }
 
 .level-bar {
-    height: 40px;                               /* Высота индикатора */
+    height: 30px;                               /* Высота индикатора */
     background: rgba(255,255,255,0.1);          /* Цвет фона */
-    border-radius: 20px;                        /* Скругление углов */
+    border-radius: 30px;                        /* Скругление углов */
     position: relative;
     overflow: hidden;
 }
@@ -79,7 +79,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 20px;                            /* Размер текста */
+    font-size: 40px;                            /* Размер текста */
     font-weight: bold;
     color: #fff;                                /* Цвет текста */
 }
