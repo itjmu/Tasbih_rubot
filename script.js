@@ -11,53 +11,35 @@ body {
     color: #fff;
 }
 
-.telegram-link {
-    position: fixed;
-    top: 15%;
-    right: 20px;
-    color: #fff;
-    text-decoration: none;
-    background: rgba(0,0,0,0.5);
-    padding: 10px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-}
-
-.click-area {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .container {
-    width: 95%; /* Увеличена ширина до краёв */
-    max-width: 700px; /* Увеличена длина на 30% */
-    padding: 30px;
-    background: rgba(0,0,0,0.56);
+    width: 100%;
+    min-height: 600px;
+    padding: 40px 20px;
+    background: rgba(0,0,0,0.6);
     border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
     margin: 20px;
 }
 
-/* Индикатор уровня */
 .level-container {
-    width: 50%; /* Увеличена длина для полного текста */
+    width: 80%;
     margin-bottom: 30px;
-    
 }
 
 .level-bar {
-    height: 40px;
+    height: 28px;
     background: rgba(255,255,255,0.1);
-    border-radius: 20px;
+    border-radius: 14px;
     position: relative;
     overflow: hidden;
 }
 
 .level-progress {
     height: 100%;
-    background: #66ffCC;
+    background: #ff9800;
     width: 0%;
     transition: width 0.3s ease;
 }
@@ -68,18 +50,18 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: bold;
-    color: #aaa;
-    font-size: 13px;
-    white-space: nowrap; /* Текст не переносится */
+    color: #fff;
+    font-size: 14px;
+    white-space: nowrap;
 }
 
-/* Основной индикатор */
 .main-progress-container {
-    margin-bottom: 130px;
+    width: 100%;
+    margin-bottom: 50px;
 }
 
 .main-progress-bar {
-    height: 50px;
+    height: 40px;
     background: rgba(255,255,255,0.1);
     border-radius: 20px;
     position: relative;
@@ -103,47 +85,39 @@ body {
     color: #fff;
 }
 
-/* Кнопка зикра */
 .zikr-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-}
-
-.zikr-button {
-    font-size: 250px;
-    cursor: pointer;
-    transition: transform 0.2s;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
 }
 
 .zikr-text {
-    position: absolute;
-    font-size: 20px;
+    font-size: 28px;
     color: #4CAF50;
     font-family: 'Arial', sans-serif;
     font-weight: bold;
     text-shadow: 0 0 10px rgba(76,175,80,0.5);
     transition: font-size 0.2s;
-    bottom: 180px; /* Расположение текста */
+    order: -1;
+    margin-bottom: -20px;
+}
+
+.zikr-button {
+    font-size: 100px;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
 .zikr-button:active {
     transform: scale(1.1);
 }
 
-.zikr-button:active .zikr-text {
-    font-size: 25px; /* Увеличение текста при нажатие */
-}
-
-/* Кнопка сброса */
 .reset-container {
     position: fixed;
     left: 20px;
-    bottom: 5%;
+    bottom: 10%;
 }
 
 #reset {
@@ -159,15 +133,15 @@ body {
 }
 
 #reset:hover {
-    background: #fff;
+    background: #c82333;
 }
 
 .total-counter {
     position: fixed;
-    bottom: 6%;
+    bottom: 10%;
     right: 20px;
-    background: rgba(0,0,0,0.4);
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 10px;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 14px;
 }
