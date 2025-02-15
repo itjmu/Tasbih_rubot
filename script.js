@@ -1,85 +1,80 @@
-// Инициализация Telegram Web App
-const tg = window.Telegram.WebApp;
-
-const zikrList = [
-    "СубhаналЛоh",
-    "Алhaмдулиллаh", 
-    "АллОhу Акбар",
-    "Ла илаha иллаллаh"
-];
-
-let currentZikrIndex = 0;
-let count = 0;
-let totalCount = 0;
-
-// Элементы
-const elements = {
-    count: document.getElementById('count'),
-    totalCount: document.getElementById('total-count'),
-    zikrText: document.getElementById('zikr-text'),
-    level: document.getElementById('level'),
-    levelProgress: document.querySelector('.level-progress'),
-    mainProgress: document.querySelector('.main-progress')
+// ########## НАСТРОЙКИ ##########
+const SETTINGS = {
+    zikrList: [ // Список зикров
+        "Субханаллах",
+        "Альхамдулиллях",
+        "Аллаху Акбар",
+        "Ля иляха илляллах"
+    ],
+    levels: [ // Уровни
+        {required: 500, level: 1},
+        {required: 1500, level: 2},
+        {required: 3500, level: 3},
+        {required: 10000, level: 4},
+        {required: 20000, level: 5}
+    ],
+    colors: { // Цветовая схема
+        primary: '#4CAF50',    // Основной цвет
+        secondary: '#ff9800',  // Вторичный цвет
+        danger: '#dc3545'      // Цвет опасных элементов
+    }
 };
 
-// Уровни
-const levels = [
-    {required: 500, level: 1},
-    {required: 1500, level: 2},
-    {required: 3500, level: 3},
-    {required: 10000, level: 4},
-    {required: 20000, level: 5}
-];
+// ########## СОХРАНЕНИЕ ДАННЫХ ##########
+let appData = JSON.parse(localStorage.getItem('tasbihData')) || {
+    count: 0,
+    totalCount: 0,
+    currentZikrIndex: 0
+};
+
+// ########## ОСНОВНАЯ ЛОГИКА ##########
+function saveData() {
+    localStorage.setItem('tasbihData', JSON.stringify(appData));
+}
 
 function updateDisplays() {
-    // Основной счётчик
-    elements.count.textContent = count;
-    elements.mainProgress.style.width = `${(count/33)*100}%`;
+    // Обновление всех элементов интерфейса
+    document.getElementById('count').textContent = appData.count;
+    document.getElementById('total-count').textContent = appData.totalCount;
+    document.getElementById('zikr-text').textContent = SETTINGS.zikrList[appData.currentZikrIndex];
     
-    // Общий счётчик
-    elements.totalCount.textContent = totalCount;
-    
-    // Уровень
-    const currentLevel = levels.find(l => totalCount < l.required) || {level: 5};
-    elements.level.textContent = currentLevel.level;
-    
-    // Прогресс уровня
-    const prevLevel = levels[currentLevel.level-2] || {required: 0};
-    const levelProgress = ((totalCount - prevLevel.required)/(currentLevel.required - prevLevel.required))*100 || 100;
-    elements.levelProgress.style.width = `${levelProgress}%`;
+    // Обновление прогресс-баров
+    document.querySelector('.main-progress').style.width = `${(appData.count/33)*100}%`;
+    const levelProgress = calculateLevelProgress();
+    document.querySelector('.level-progress').style.width = `${levelProgress}%`;
 }
 
-function incrementCounter() {
-    count++;
-    totalCount++;
-    
-    if(count === 33) {
-        count = 0;
-        currentZikrIndex = (currentZikrIndex + 1) % zikrList.length;
-        elements.zikrText.textContent = zikrList[currentZikrIndex];
-    }
-    
-    updateDisplays();
+function calculateLevelProgress() {
+    // Логика расчета уровня
+    const currentLevel = SETTINGS.levels.find(l => appData.totalCount < l.required) || {level: 5};
+    document.getElementById('level').textContent = currentLevel.level;
+    const prevLevel = SETTINGS.levels[currentLevel.level-2] || {required: 0};
+    return ((appData.totalCount - prevLevel.required)/(currentLevel.required - prevLevel.required))*100 || 100;
 }
 
-function resetCounter() {
-    count = 0;
-    currentZikrIndex = 0;
-    elements.zikrText.textContent = zikrList[0];
-    updateDisplays();
-}
-
-// Обработчики событий
+// ########## ОБРАБОТЧИКИ СОБЫТИЙ ##########
 document.addEventListener('click', (e) => {
     if(!e.target.closest('#reset')) {
-        incrementCounter();
-        // Анимация увеличения текста
-        elements.zikrText.classList.add('active');
-        setTimeout(() => elements.zikrText.classList.remove('active'), 200);
+        appData.count++;
+        appData.totalCount++;
+        
+        if(appData.count === 33) {
+            appData.count = 0;
+            appData.currentZikrIndex = (appData.currentZikrIndex + 1) % SETTINGS.zikrList.length;
+        }
+        
+        updateDisplays();
+        saveData();
     }
 });
 
-document.getElementById('reset').addEventListener('click', resetCounter);
+document.getElementById('reset').addEventListener('click', () => {
+    appData.count = 0;
+    appData.currentZikrIndex = 0;
+    updateDisplays();
+    saveData();
+});
 
-// Инициализация
+// ########## ИНИЦИАЛИЗАЦИЯ ##########
 updateDisplays();
+tg.ready();
