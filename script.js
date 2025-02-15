@@ -1,147 +1,82 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-image: url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
+// Инициализация Telegram Web App
+const tg = window.Telegram.WebApp;
+
+// Список зикров
+const zikrList = [
+    "Субханаллах",
+    "Альхамдулиллях", 
+    "Аллаху Акбар",
+    "Ля иляха илляллах"
+];
+
+let currentZikrIndex = 0;
+let count = 0;
+let totalCount = 0;
+
+// Элементы
+const elements = {
+    count: document.getElementById('count'),
+    totalCount: document.getElementById('total-count'),
+    zikrText: document.getElementById('zikr-text'),
+    level: document.getElementById('level'),
+    levelProgress: document.querySelector('.level-progress'),
+    mainProgress: document.querySelector('.main-progress')
+};
+
+// Уровни
+const levels = [
+    {required: 500, level: 1},
+    {required: 1500, level: 2},
+    {required: 3500, level: 3},
+    {required: 10000, level: 4},
+    {required: 20000, level: 5}
+];
+
+// Обновление отображения
+function updateDisplays() {
+    elements.count.textContent = count;
+    elements.mainProgress.style.width = `${(count/33)*100}%`;
+    elements.totalCount.textContent = totalCount;
+    
+    const currentLevel = levels.find(l => totalCount < l.required) || {level: 5};
+    elements.level.textContent = currentLevel.level;
+    
+    const prevLevel = levels[currentLevel.level-2] || {required: 0};
+    const levelProgress = ((totalCount - prevLevel.required)/(currentLevel.required - prevLevel.required))*100 || 100;
+    elements.levelProgress.style.width = `${levelProgress}%`;
 }
 
-.container {
-    width: 100%;
-    min-height: 600px;
-    padding: 40px 20px;
-    background: rgba(0,0,0,0.6);
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    margin: 20px;
+// Увеличение счетчика
+function incrementCounter() {
+    count++;
+    totalCount++;
+    
+    if(count === 33) {
+        count = 0;
+        currentZikrIndex = (currentZikrIndex + 1) % zikrList.length;
+        elements.zikrText.textContent = zikrList[currentZikrIndex];
+    }
+    
+    updateDisplays();
 }
 
-.level-container {
-    width: 80%;
-    margin-bottom: 30px;
+// Сброс счетчиков
+function resetCounter() {
+    count = 0;
+    currentZikrIndex = 0;
+    elements.zikrText.textContent = zikrList[0];
+    updateDisplays();
 }
 
-.level-bar {
-    height: 28px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 14px;
-    position: relative;
-    overflow: hidden;
-}
+// Обработчики событий
+document.addEventListener('click', (e) => {
+    if(!e.target.closest('#reset')) {
+        incrementCounter();
+    }
+});
 
-.level-progress {
-    height: 100%;
-    background: #ff9800;
-    width: 0%;
-    transition: width 0.3s ease;
-}
+document.getElementById('reset').addEventListener('click', resetCounter);
 
-.level-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: bold;
-    color: #fff;
-    font-size: 14px;
-    white-space: nowrap;
-}
-
-.main-progress-container {
-    width: 100%;
-    margin-bottom: 50px;
-}
-
-.main-progress-bar {
-    height: 40px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-}
-
-.main-progress {
-    height: 100%;
-    background: #4CAF50;
-    width: 0%;
-    transition: width 0.3s ease;
-}
-
-.main-counter {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-}
-
-.zikr-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.zikr-text {
-    font-size: 28px;
-    color: #4CAF50;
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(76,175,80,0.5);
-    transition: font-size 0.2s;
-    order: -1;
-    margin-bottom: -20px;
-}
-
-.zikr-button {
-    font-size: 100px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.zikr-button:active {
-    transform: scale(1.1);
-}
-
-.reset-container {
-    position: fixed;
-    left: 20px;
-    bottom: 10%;
-}
-
-#reset {
-    background: #dc3545;
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-#reset:hover {
-    background: #c82333;
-}
-
-.total-counter {
-    position: fixed;
-    bottom: 10%;
-    right: 20px;
-    background: rgba(0,0,0,0.5);
-    padding: 10px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-}
+// Инициализация при загрузке
+tg.ready();  // Готовность Web App
+updateDisplays();
