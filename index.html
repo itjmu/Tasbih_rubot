@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тасбих-счётчик</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <a href="https://t.me/Tasbih_ru" class="telegram-link" target="_blank">☪️ Tasbih Reward</a>
-
     <div class="click-area">
         <div class="container">
             <!-- Индикатор уровня -->
@@ -31,16 +30,18 @@
             <div class="zikr-container">
                 <div class="zikr-button">
                     📿
-                    <div class="zikr-text" id="zikr-text">СубhaналЛoh</div>
+                    <div class="zikr-text" id="zikr-text">Субханаллах</div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Кнопка сброса -->
     <div class="reset-container">
         <button id="reset">⭕</button>
     </div>
 
+    <!-- Общий счётчик -->
     <div class="total-counter">
         Общий счёт: <span id="total-count">0</span>
     </div>
