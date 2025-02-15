@@ -24,22 +24,24 @@ body {
     margin: 20px;
 }
 
+/* Индикатор уровня */
 .level-container {
-    width: 80%;
+    width: 50%; /* Увеличена длина для полного текста */
     margin-bottom: 30px;
+    
 }
 
 .level-bar {
-    height: 28px;
+    height: 40px;
     background: rgba(255,255,255,0.1);
-    border-radius: 14px;
+    border-radius: 20px;
     position: relative;
     overflow: hidden;
 }
 
 .level-progress {
     height: 100%;
-    background: #ff9800;
+    background: #66ffCC;
     width: 0%;
     transition: width 0.3s ease;
 }
@@ -50,9 +52,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: bold;
-    color: #fff;
-    font-size: 14px;
-    white-space: nowrap;
+    color: #aaa;
+    font-size: 13px;
+    white-space: nowrap; /* Текст не переносится */
 }
 
 .main-progress-container {
