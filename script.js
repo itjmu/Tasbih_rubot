@@ -1,23 +1,18 @@
 // ########## НАСТРОЙКИ ##########
 const SETTINGS = {
-    zikrList: [ // Список зикров
+    zikrList: [ // Список зикров (можно менять)
         "Субханаллах",
         "Альхамдулиллях",
         "Аллаху Акбар",
         "Ля иляха илляллах"
     ],
-    levels: [ // Уровни
+    levels: [ // Уровни (можно менять значения)
         {required: 500, level: 1},
         {required: 1500, level: 2},
         {required: 3500, level: 3},
         {required: 10000, level: 4},
         {required: 20000, level: 5}
-    ],
-    colors: { // Цветовая схема
-        primary: '#4CAF50',    // Основной цвет
-        secondary: '#ff9800',  // Вторичный цвет
-        danger: '#dc3545'      // Цвет опасных элементов
-    }
+    ]
 };
 
 // ########## СОХРАНЕНИЕ ДАННЫХ ##########
@@ -28,24 +23,32 @@ let appData = JSON.parse(localStorage.getItem('tasbihData')) || {
 };
 
 // ########## ОСНОВНАЯ ЛОГИКА ##########
+const tg = window.Telegram.WebApp;
+
 function saveData() {
     localStorage.setItem('tasbihData', JSON.stringify(appData));
+    if(tg?.sendData) {
+        tg.sendData(JSON.stringify(appData)); // Отправка данных в Telegram
+    }
 }
 
 function updateDisplays() {
-    // Обновление всех элементов интерфейса
+    // Обновление счетчиков
     document.getElementById('count').textContent = appData.count;
     document.getElementById('total-count').textContent = appData.totalCount;
-    document.getElementById('zikr-text').textContent = SETTINGS.zikrList[appData.currentZikrIndex];
+    
+    // Обновление зикра
+    document.getElementById('zikr-text').textContent = 
+        SETTINGS.zikrList[appData.currentZikrIndex];
     
     // Обновление прогресс-баров
-    document.querySelector('.main-progress').style.width = `${(appData.count/33)*100}%`;
-    const levelProgress = calculateLevelProgress();
-    document.querySelector('.level-progress').style.width = `${levelProgress}%`;
+    document.querySelector('.main-progress').style.width = 
+        `${(appData.count/33)*100}%`;
+    document.querySelector('.level-progress').style.width = 
+        `${calculateLevelProgress()}%`;
 }
 
 function calculateLevelProgress() {
-    // Логика расчета уровня
     const currentLevel = SETTINGS.levels.find(l => appData.totalCount < l.required) || {level: 5};
     document.getElementById('level').textContent = currentLevel.level;
     const prevLevel = SETTINGS.levels[currentLevel.level-2] || {required: 0};
@@ -76,5 +79,6 @@ document.getElementById('reset').addEventListener('click', () => {
 });
 
 // ########## ИНИЦИАЛИЗАЦИЯ ##########
-updateDisplays();
 tg.ready();
+tg.expand();
+updateDisplays();
