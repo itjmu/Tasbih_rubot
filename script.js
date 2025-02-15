@@ -1,12 +1,8 @@
-// Инициализация Telegram Web App
-const tg = window.Telegram.WebApp;
-
-// Список зикров
 const zikrList = [
-    "Субханаллах",
-    "Альхамдулиллях", 
-    "Аллаху Акбар",
-    "Ля иляха илляллах"
+    "СубhаналЛоh",
+    "Алhaмдулиллаh", 
+    "АллОhу Акбар",
+    "Ла илаha иллаллаh"
 ];
 
 let currentZikrIndex = 0;
@@ -32,21 +28,24 @@ const levels = [
     {required: 20000, level: 5}
 ];
 
-// Обновление отображения
 function updateDisplays() {
+    // Основной счётчик
     elements.count.textContent = count;
     elements.mainProgress.style.width = `${(count/33)*100}%`;
+    
+    // Общий счётчик
     elements.totalCount.textContent = totalCount;
     
+    // Уровень
     const currentLevel = levels.find(l => totalCount < l.required) || {level: 5};
     elements.level.textContent = currentLevel.level;
     
+    // Прогресс уровня
     const prevLevel = levels[currentLevel.level-2] || {required: 0};
     const levelProgress = ((totalCount - prevLevel.required)/(currentLevel.required - prevLevel.required))*100 || 100;
     elements.levelProgress.style.width = `${levelProgress}%`;
 }
 
-// Увеличение счетчика
 function incrementCounter() {
     count++;
     totalCount++;
@@ -60,7 +59,6 @@ function incrementCounter() {
     updateDisplays();
 }
 
-// Сброс счетчиков
 function resetCounter() {
     count = 0;
     currentZikrIndex = 0;
@@ -72,11 +70,13 @@ function resetCounter() {
 document.addEventListener('click', (e) => {
     if(!e.target.closest('#reset')) {
         incrementCounter();
+        // Анимация увеличения текста
+        elements.zikrText.classList.add('active');
+        setTimeout(() => elements.zikrText.classList.remove('active'), 200);
     }
 });
 
 document.getElementById('reset').addEventListener('click', resetCounter);
 
-// Инициализация при загрузке
-tg.ready();  // Готовность Web App
+// Инициализация
 updateDisplays();
