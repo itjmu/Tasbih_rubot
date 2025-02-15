@@ -1,24 +1,18 @@
-// ########## НАСТРОЙКИ ДЛЯ ИЗМЕНЕНИЯ ##########
+// ########## НАСТРОЙКИ ##########
 const SETTINGS = {
-    zikrList: [ // Измените список зикров по желанию
+    zikrList: [ // Список зикров
         "Субханаллах",
         "Альхамдулиллях",
         "Аллаху Акбар",
         "Ля иляха илляллах"
     ],
-    levels: [ // Настройте пороги уровней
+    levels: [ // Уровни
         {required: 500, level: 1},
         {required: 1500, level: 2},
         {required: 3500, level: 3},
         {required: 10000, level: 4},
         {required: 20000, level: 5}
-    ],
-    colors: { // Измените цвета элементов
-        levelProgress: '#66ffCC',
-        mainProgress: '#4CAF50',
-        zikrText: '#4CAF50',
-        resetButton: '#dc3545'
-    }
+    ]
 };
 
 // ########## СОХРАНЕНИЕ ДАННЫХ ##########
@@ -39,14 +33,19 @@ function saveData() {
 }
 
 function updateDisplays() {
-    // Обновление интерфейса
+    // Обновление счетчиков
     document.getElementById('count').textContent = appData.count;
     document.getElementById('total-count').textContent = appData.totalCount;
-    document.getElementById('zikr-text').textContent = SETTINGS.zikrList[appData.currentZikrIndex];
     
-    // Прогресс-бары
-    document.querySelector('.main-progress').style.width = `${(appData.count/33)*100}%`;
-    document.querySelector('.level-progress').style.width = `${calculateLevelProgress()}%`;
+    // Обновление зикра
+    document.getElementById('zikr-text').textContent = 
+        SETTINGS.zikrList[appData.currentZikrIndex];
+    
+    // Обновление прогресс-баров
+    document.querySelector('.main-progress').style.width = 
+        `${(appData.count/33)*100}%`;
+    document.querySelector('.level-progress').style.width = 
+        `${calculateLevelProgress()}%`;
 }
 
 function calculateLevelProgress() {
@@ -79,7 +78,7 @@ document.getElementById('reset').addEventListener('click', () => {
     saveData();
 });
 
-// ########## ЗАПУСК ПРИЛОЖЕНИЯ ##########
+// ########## ИНИЦИАЛИЗАЦИЯ ##########
 tg.ready();
 tg.expand();
 updateDisplays();
