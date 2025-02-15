@@ -80,7 +80,7 @@ body {
 }
 
 .zikr-button {
-    font-size: 200px; /* Размер эмодзи */
+    font-size: 150px; /* Размер эмодзи */
     cursor: pointer;
     transition: transform 0.2s; /* Анимация нажатия */
     position: relative;
@@ -88,10 +88,10 @@ body {
 
 .zikr-text {
     position: absolute;
-    font-size: 20px; /* Размер текста */
+    font-size: 15px; /* Размер текста */
     color: #4CAF50; /* Цвет текста */
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(76,175,80,0.5); /* Тень текста */
+    text-shadow: 0 0 17px rgba(76,175,80,0.5); /* Тень текста */
     bottom: 100px; /* Позиция снизу */
     left: 50%; /* Центрирование */
     transform: translateX(-50%); /* Точное центрирование */
@@ -103,7 +103,7 @@ body {
 }
 
 .zikr-button:active .zikr-text {
-    font-size: 20px; /* Увеличение текста */
+    font-size: 18px; /* Увеличение текста */
 }
 
 /* ########## КНОПКА СБРОСА ########## */
