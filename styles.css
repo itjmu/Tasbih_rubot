@@ -17,7 +17,6 @@ body {
 .level-container {
     width: 50%; /* Ширина индикатора */
     margin-bottom: 80px; /* Отступ снизу */
-    left: 20px;
 }
 
 .level-bar {
@@ -48,7 +47,7 @@ body {
 /* ########## ОСНОВНОЙ ИНДИКАТОР ########## */
 .main-progress-container {
     width: 90%; /* Ширина индикатора */
-    margin-bottom: 250px; /* Отступ снизу */
+    margin-bottom: 200px; /* Отступ снизу */
 }
 
 .main-progress-bar {
@@ -77,7 +76,7 @@ body {
 
 /* ########## КНОПКА ЗИКРА ########## */
 .zikr-container {
-    margin-top: 20px; /* Отступ сверху */
+    margin-top: 10px; /* Отступ сверху */
 }
 
 .zikr-button {
@@ -93,7 +92,7 @@ body {
     color: #4CAF50; /* Цвет текста */
     font-weight: bold;
     text-shadow: 0 0 25px rgba(76,175,80,0.5); /* Тень текста */
-    bottom: 400px; /* Позиция снизу */
+    bottom: 300px; /* Позиция снизу */
     left: 50%; /* Центрирование */
     transform: translateX(-50%); /* Точное центрирование */
     transition: font-size 0.2s; /* Анимация текста */
