@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тасбих-счётчик</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>  <!-- Подключение Telegram Web Apps -->
 </head>
 <body>
     <div class="container">
-        <!-- ##### ИНДИКАТОР УРОВНЯ ##### -->
+        <!-- Индикатор уровня -->
         <div class="level-container">
             <div class="level-bar">
                 <div class="level-progress"></div>
@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <!-- ##### ОСНОВНОЙ ИНДИКАТОР ##### -->
+        <!-- Основной индикатор -->
         <div class="main-progress-container">
             <div class="main-progress-bar">
                 <div class="main-progress"></div>
@@ -25,21 +25,17 @@
             </div>
         </div>
 
-        <!-- ##### КНОПКА ЗИКРА ##### -->
+        <!-- Кнопка зикра -->
         <div class="zikr-container">
-            <div class="zikr-button">
-                📿
-                <div class="zikr-text" id="zikr-text">Субханаллах</div>
-            </div>
+            <div class="zikr-text" id="zikr-text">Субханаллах</div>
+            <div class="zikr-button">📿</div>
         </div>
     </div>
 
-    <!-- ##### КНОПКА СБРОСА ##### -->
     <div class="reset-container">
         <button id="reset">⭕</button>
     </div>
 
-    <!-- ##### ОБЩИЙ СЧЁТ ##### -->
     <div class="total-counter">
         Общий счёт: <span id="total-count">0</span>
     </div>
