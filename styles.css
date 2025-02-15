@@ -18,7 +18,7 @@ body {
     max-width: 500px;                           /* Максимальная ширина */
     padding: 10px;                              /* Внутренние отступы */
     background: rgba(0,0,0,0.56);               /* Цвет фона */
-    border-radius: 25px;                        /* Скругление углов */
+    border-radius: 10px;                        /* Скругление углов */
     margin: 20px;
 }
 
