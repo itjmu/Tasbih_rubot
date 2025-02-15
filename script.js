@@ -1,3 +1,6 @@
+// Инициализация Telegram Web App
+const tg = window.Telegram.WebApp;
+
 const zikrList = [
     "СубhаналЛоh",
     "Алhaмдулиллаh", 
