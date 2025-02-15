@@ -1,173 +1,93 @@
-/* Основные стили страницы */
+/* ########## ОСНОВНЫЕ НАСТРОЙКИ ########## */
 body {
-    font-family: 'Arial', sans-serif;  <!-- Шрифт -->
-    background-image: url('background.jpg');  <!-- Фоновое изображение -->
-    background-size: cover;  <!-- Растягивание фона -->
-    background-position: center;  <!-- Позиция фона -->
-    margin: 0;  <!-- Убрать отступы -->
-    height: 100vh;  <!-- Высота на весь экран -->
-    display: flex;  <!-- Флекс-контейнер -->
-    justify-content: center;  <!-- Центрирование по горизонтали -->
-    align-items: center;  <!-- Центрирование по вертикали -->
-    color: #fff;  <!-- Цвет текста -->
+    font-family: 'Arial', sans-serif; /* Шрифт текста */
+    background-image: url('background.jpg'); /* Фоновое изображение */
+    background-size: cover; /* Масштабирование фона */
+    background-position: center; /* Позиция фона */
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* Цвет текста */
 }
 
-/* Стиль заголовка с ссылкой */
-.reward-link {
-    position: fixed;  <!-- Фиксированное позиционирование -->
-    top: 10px;  <!-- Отступ сверху -->
-    left: 50%;  <!-- Центрирование по горизонтали -->
-    transform: translateX(-50%);  <!-- Точное центрирование -->
-    color: #fff;  <!-- Цвет текста -->
-    text-decoration: none;  <!-- Убрать подчеркивание -->
-    background: rgba(0,0,0,0.5);  <!-- Цвет фона -->
-    padding: 10px 20px;  <!-- Внутренние отступы -->
-    border-radius: 20px;  <!-- Скругление углов -->
-    font-size: 18px;  <!-- Размер шрифта -->
-    font-weight: bold;  <!-- Жирный шрифт -->
-    z-index: 1000;  <!-- Поверх других элементов -->
-}
-
-/* Основной контейнер */
+/* ########## ОСНОВНОЙ КОНТЕЙНЕР ########## */
 .container {
-    width: 90%;  <!-- Ширина контейнера -->
-    max-width: 400px;  <!-- Максимальная ширина -->
-    padding: 30px;  <!-- Внутренние отступы -->
-    background: rgba(0,0,0,0.6);  <!-- Цвет фона с прозрачностью -->
-    border-radius: 25px;  <!-- Скругление углов -->
-    display: flex;  <!-- Флекс-контейнер -->
-    flex-direction: column;  <!-- Вертикальное расположение -->
-    align-items: center;  <!-- Центрирование элементов -->
-    gap: 30px;  <!-- Расстояние между элементами -->
+    width: 90%; /* Ширина контейнера */
+    max-width: 400px; /* Максимальная ширина */
+    min-height: 500px; /* Высота контейнера */
+    padding: 30px; /* Внутренние отступы */
+    background: rgba(0,0,0,0.7); /* Цвет фона и прозрачность */
+    border-radius: 25px; /* Скругление углов */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Расстояние между элементами */
 }
 
-/* Индикатор уровня */
+/* ########## ИНДИКАТОР УРОВНЯ ########## */
 .level-container {
-    width: 80%;  <!-- Ширина индикатора -->
-    margin-bottom: 20px;  <!-- Отступ снизу -->
+    width: 80%; /* Ширина индикатора */
+    margin-bottom: 20px; /* Отступ снизу */
 }
 
 .level-bar {
-    height: 20px;  <!-- Высота индикатора -->
-    background: rgba(255,255,255,0.1);  <!-- Цвет фона -->
-    border-radius: 10px;  <!-- Скругление углов -->
-    position: relative;  <!-- Относительное позиционирование -->
-    overflow: hidden;  <!-- Скрытие выходящего за границы -->
+    height: 20px; /* Высота индикатора */
+    background: rgba(255,255,255,0.2); /* Цвет фона */
+    border-radius: 10px; /* Скругление углов */
+    position: relative;
+    overflow: hidden;
 }
 
 .level-progress {
-    height: 100%;  <!-- Высота заполнения -->
-    background: #ff9800;  <!-- Цвет заполнения -->
-    width: 0%;  <!-- Начальная ширина -->
-    transition: width 0.3s ease;  <!-- Анимация изменения -->
+    height: 100%;
+    background: #ff9800; /* Цвет заполнения */
+    width: 0%;
+    transition: width 0.3s ease; /* Анимация изменения */
 }
 
-.level-text {
-    position: absolute;  <!-- Абсолютное позиционирование -->
-    top: 50%;  <!-- Позиционирование по вертикали -->
-    left: 50%;  <!-- Позиционирование по горизонтали -->
-    transform: translate(-50%, -50%);  <!-- Центрирование -->
-    font-weight: bold;  <!-- Жирный шрифт -->
-    color: #fff;  <!-- Цвет текста -->
-    font-size: 14px;  <!-- Размер шрифта -->
-    white-space: nowrap;  <!-- Запрет переноса текста -->
-}
-
-/* Основной индикатор */
-.main-progress-container {
-    width: 100%;  <!-- Ширина контейнера -->
-    margin-bottom: 30px;  <!-- Отступ снизу -->
-}
-
+/* ########## ОСНОВНОЙ ИНДИКАТОР ########## */
 .main-progress-bar {
-    height: 30px;  <!-- Высота индикатора -->
-    background: rgba(255,255,255,0.1);  <!-- Цвет фона -->
-    border-radius: 15px;  <!-- Скругление углов -->
-    position: relative;  <!-- Относительное позиционирование -->
-    overflow: hidden;  <!-- Скрытие выходящего за границы -->
+    height: 30px; /* Высота индикатора */
+    background: rgba(255,255,255,0.2); /* Цвет фона */
+    border-radius: 15px; /* Скругление углов */
 }
 
 .main-progress {
-    height: 100%;  <!-- Высота заполнения -->
-    background: #4CAF50;  <!-- Цвет заполнения -->
-    width: 0%;  <!-- Начальная ширина -->
-    transition: width 0.3s ease;  <!-- Анимация изменения -->
+    background: #4CAF50; /* Цвет заполнения */
+    width: 0%;
+    transition: width 0.3s ease; /* Анимация изменения */
 }
 
-.main-counter {
-    position: absolute;  <!-- Абсолютное позиционирование -->
-    top: 50%;  <!-- Позиционирование по вертикали -->
-    left: 50%;  <!-- Позиционирование по горизонтали -->
-    transform: translate(-50%, -50%);  <!-- Центрирование -->
-    font-size: 18px;  <!-- Размер шрифта -->
-    font-weight: bold;  <!-- Жирный шрифт -->
-    color: #fff;  <!-- Цвет текста -->
-}
-
-/* Кнопка зикра */
-.zikr-container {
-    display: flex;  <!-- Флекс-контейнер -->
-    justify-content: center;  <!-- Центрирование -->
-    align-items: center;  <!-- Центрирование -->
-}
-
+/* ########## КНОПКА ЗИКРА ########## */
 .zikr-button {
-    font-size: 100px;  <!-- Размер эмодзи -->
-    cursor: pointer;  <!-- Курсор-указатель -->
-    position: relative;  <!-- Относительное позиционирование -->
-    transition: transform 0.2s;  <!-- Анимация трансформации -->
+    font-size: 100px; /* Размер эмодзи */
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s; /* Анимация нажатия */
 }
 
 .zikr-text {
-    position: absolute;  <!-- Абсолютное позиционирование -->
-    top: 50%;  <!-- Позиционирование по вертикали -->
-    left: 50%;  <!-- Позиционирование по горизонтали -->
-    transform: translate(-50%, -50%);  <!-- Центрирование -->
-    font-size: 24px;  <!-- Размер шрифта -->
-    color: #4CAF50;  <!-- Цвет текста -->
-    font-weight: bold;  <!-- Жирный шрифт -->
-    text-shadow: 0 0 10px rgba(76,175,80,0.5);  <!-- Тень текста -->
-    transition: font-size 0.2s;  <!-- Анимация изменения -->
+    font-size: 24px; /* Размер текста */
+    color: #4CAF50; /* Цвет текста */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: font-size 0.2s; /* Анимация текста */
 }
 
-.zikr-button:active {
-    transform: scale(1.1);  <!-- Увеличение при нажатии -->
-}
-
-.zikr-button:active .zikr-text {
-    font-size: 28px;  <!-- Увеличение текста на 10% при нажатии -->
-}
-
-/* Кнопка сброса */
-.reset-container {
-    position: fixed;  <!-- Фиксированное позиционирование -->
-    left: 20px;  <!-- Отступ слева -->
-    bottom: 10%;  <!-- Отступ снизу -->
-}
-
+/* ########## ДОПОЛНИТЕЛЬНЫЕ ЭЛЕМЕНТЫ ########## */
 #reset {
-    background: #dc3545;  <!-- Цвет фона -->
-    border: none;  <!-- Без рамки -->
-    width: 50px;  <!-- Ширина -->
-    height: 50px;  <!-- Высота -->
-    border-radius: 50%;  <!-- Круглая форма -->
-    font-size: 24px;  <!-- Размер эмодзи -->
-    color: white;  <!-- Цвет текста -->
-    cursor: pointer;  <!-- Курсор-указатель -->
-    transition: background 0.3s;  <!-- Анимация фона -->
+    width: 50px; /* Размер кнопки */
+    height: 50px;
+    background: #dc3545; /* Цвет кнопки */
+    border-radius: 50%;
 }
 
-#reset:hover {
-    background: #c82333;  <!-- Цвет при наведении -->
-}
-
-/* Общий счётчик */
 .total-counter {
-    position: fixed;  <!-- Фиксированное позиционирование -->
-    bottom: 10%;  <!-- Отступ снизу -->
-    right: 20px;  <!-- Отступ справа -->
-    background: rgba(0,0,0,0.5);  <!-- Цвет фона -->
-    padding: 10px 15px;  <!-- Внутренние отступы -->
-    border-radius: 20px;  <!-- Скругление углов -->
-    font-size: 14px;  <!-- Размер шрифта -->
+    background: rgba(0,0,0,0.5); /* Цвет фона */
+    padding: 10px 20px; /* Внутренние отступы */
+    border-radius: 20px; /* Скругление углов */
 }
