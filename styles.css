@@ -88,11 +88,11 @@ body {
 
 .zikr-text {
     position: absolute;
-    font-size: 15px; /* Размер текста */
+    font-size: 30px; /* Размер текста */
     color: #4CAF50; /* Цвет текста */
     font-weight: bold;
-    text-shadow: 0 0 17px rgba(76,175,80,0.5); /* Тень текста */
-    bottom: 100px; /* Позиция снизу */
+    text-shadow: 0 0 40px rgba(76,175,80,0.5); /* Тень текста */
+    bottom: 300px; /* Позиция снизу */
     left: 50%; /* Центрирование */
     transform: translateX(-50%); /* Точное центрирование */
     transition: font-size 0.2s; /* Анимация текста */
