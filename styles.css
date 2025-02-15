@@ -106,6 +106,8 @@ body {
     text-shadow: 0 0 10px rgba(76,175,80,0.5);  /* Тень текста */
     bottom: 200px;                              /* Позиция текста */
     transition: font-size 0.2s;                 /* Анимация текста */
+justify-content: center;
+    align-items: center;
 }
 
 .zikr-button:active {
