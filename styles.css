@@ -14,9 +14,9 @@ body {
 
 /* ########## ОСНОВНОЙ КОНТЕЙНЕР ########## */
 .container {
-    width: 98%;                                 /* Ширина контейнера */
-    max-width: 560px;                           /* Максимальная ширина */
-    padding: 5px;                              /* Внутренние отступы */
+    width: 100%;                                 /* Ширина контейнера */
+    max-width: 600px;                           /* Максимальная ширина */
+    padding: 1px;                              /* Внутренние отступы */
     background: rgba(0,0,0,0.50);               /* Цвет фона */
     border-radius: 10px;                        /* Скругление углов */
     margin: 10px;
@@ -56,13 +56,13 @@ body {
 
 /* ########## ОСНОВНОЙ ИНДИКАТОР ########## */
 .main-progress-container {
-    margin-bottom: 130px;                       /* Отступ снизу */
+    margin-bottom: 150px;                       /* Отступ снизу */
 }
 
 .main-progress-bar {
     height: 50px;                               /* Высота индикатора */
     background: rgba(255,255,255,0.1);          /* Цвет фона */
-    border-radius: 20px;                        /* Скругление углов */
+    border-radius: 30px;                        /* Скругление углов */
     position: relative;
     overflow: hidden;
 }
@@ -92,7 +92,7 @@ body {
 }
 
 .zikr-button {
-    font-size: 250px;                           /* Размер эмодзи */
+    font-size: 300px;                           /* Размер эмодзи */
     cursor: pointer;
     transition: transform 0.2s;                 /* Анимация нажатия */
     position: relative;
