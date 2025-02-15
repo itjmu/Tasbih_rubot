@@ -92,7 +92,7 @@ body {
 }
 
 .zikr-button {
-    font-size: 250px;                           /* Размер эмодзи */
+    font-size: 200px;                           /* Размер эмодзи */
     cursor: pointer;
     transition: transform 0.2s;                 /* Анимация нажатия */
     position: relative;
@@ -104,7 +104,7 @@ body {
     color: #4CAF50;                             /* Цвет текста */
     font-weight: bold;
     text-shadow: 0 0 10px rgba(76,175,80,0.5);  /* Тень текста */
-    top: 50%;
+    top: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
     bottom: auto;
