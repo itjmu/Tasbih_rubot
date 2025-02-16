@@ -96,7 +96,7 @@ body {
 
 /* ########## КНОПКА ЗИКРА ########## */
 .zikr-container {
-    margin-bottom: 120px; /* Отступ снизу */
+    margin-bottom: 100px; /* Отступ снизу */
 }
 
 .zikr-button {
@@ -146,7 +146,6 @@ body {
 }
 
 #reset {
-    background: #dc3545; /* Цвет фона */
     border: none;
     width: 50px; /* Размер кнопки */
     height: 50px;
