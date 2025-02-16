@@ -76,7 +76,7 @@ body {
 
 /* ########## КНОПКА ЗИКРА ########## */
 .zikr-container {
-    margin-bottom: 140px; /* Отступ снизу */
+    margin-bottom: 130px; /* Отступ снизу */
 }
 
 .zikr-button {
@@ -92,7 +92,7 @@ body {
     color: #4CAF50; /* Цвет текста */
     font-weight: bold;
     text-shadow: 0 0 5px rgba(76,175,80,0.5); /* Тень текста */
-    bottom: 300px; /* Позиция снизу */
+    bottom: 290px; /* Позиция снизу */
     left: 50%; /* Центрирование */
     transform: translateX(-50%); /* Точное центрирование */
     transition: font-size 0.2s; /* Анимация текста */
@@ -103,7 +103,7 @@ body {
 }
 
 .zikr-button:active .zikr-text {
-    font-size: 20px; /* Увеличение текста */
+    font-size: 22px; /* Увеличение текста */
 }
 
 /* ########## КНОПКА СБРОСА ########## */
