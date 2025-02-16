@@ -13,6 +13,24 @@ body {
     color: #fff;
 }
 
+/* ########## ТЕКСТ В ВЕРХНЕМ ПРАВОМ УГЛУ ########## */
+.top-link {
+    position: fixed; /* Фиксированное позиционирование */
+    top: 20px;       /* Отступ сверху */
+    right: 20px;     /* Отступ справа */
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    background: rgba(0,0,0,0.5);
+    padding: 8px 15px;
+    border-radius: 20px;
+    z-index: 1000;   /* Поверх других элементов */
+}
+
+.top-link:hover {
+    background: rgba(0,0,0,0.7);
+}
+
 /* ########## ИНДИКАТОР УРОВНЯ ########## */
 .level-container {
     width: 50%; /* Ширина индикатора */
