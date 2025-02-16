@@ -1,17 +1,17 @@
 // ########## НАСТРОЙКИ ##########
 const SETTINGS = {
     zikrList: [ // Список зикров
-        "Субханаллах",
-        "Альхамдулиллях",
-        "Аллаху Акбар",
-        "Ля иляха илляллах"
+        "СубhаналЛоh",
+        "АлhамдулилЛah",
+        "Аллоhу Акбар",
+        "Ла илАhа иллалЛоh"
     ],
     levels: [ // Уровни
-        {required: 500, level: 1},
-        {required: 1500, level: 2},
-        {required: 3500, level: 3},
-        {required: 10000, level: 4},
-        {required: 20000, level: 5}
+        {required: 3500, level: 1},
+        {required: 7000, level: 2},
+        {required: 14000, level: 3},
+        {required: 30000, level: 4},
+        {required: 50000, level: 5}
     ]
 };
 
