@@ -42,7 +42,7 @@ body {
 .level-bar {
     height: 20px; /* Высота индикатора */
     background: rgba(255,255,255,0.1); /* Цвет фона */
-    border-radius: 5px; /* Скругление углов */
+    border-radius: 7px; /* Скругление углов */
     position: relative;
     overflow: hidden;
 }
@@ -56,9 +56,9 @@ body {
 
 .level-text {
     position: absolute;
-    top: 30%;
-    left: 30%;
-    transform: translate(-30%, -30%);
+    top: 40%;
+    left: 40%;
+    transform: translate(-40%, -40%);
     font-weight: bold;
     color: #aaa; /* Цвет текста */
     font-size: 13px; /* Размер текста */
