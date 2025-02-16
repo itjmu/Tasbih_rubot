@@ -5,6 +5,7 @@ const SETTINGS = {
         "АлhамдулилЛah",
         "Аллоhу Акбар",
         "Ла илАhа иллалЛоh"
+        "АстағфирулЛoh"
     ],
     levels: [ // Уровни
         {required: 3500, level: 1},
