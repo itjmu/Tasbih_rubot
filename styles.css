@@ -16,7 +16,7 @@ body {
 /* ########## ИНДИКАТОР УРОВНЯ ########## */
 .level-container {
     width: 50%; /* Ширина индикатора */
-    margin-bottom: 50px; /* Отступ снизу */
+    margin-bottom: 40px; /* Отступ снизу */
 }
 
 .level-bar {
