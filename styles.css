@@ -42,7 +42,7 @@ body {
 .level-bar {
     height: 20px; /* Высота индикатора */
     background: rgba(255,255,255,0.1); /* Цвет фона */
-    border-radius: 7px; /* Скругление углов */
+    border-radius: 10px; /* Скругление углов */
     position: relative;
     overflow: hidden;
 }
