@@ -76,7 +76,7 @@ body {
 
 /* ########## КНОПКА ЗИКРА ########## */
 .zikr-container {
-    margin-top: -10px; /* Отступ сверху */
+    margin-bottom: 10px; /* Отступ снизу */
 }
 
 .zikr-button {
