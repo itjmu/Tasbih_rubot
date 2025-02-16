@@ -104,7 +104,7 @@ body {
     text-align: center;   /* Центрирование */
     white-space: normal; /* Разрешить перено */
     word-wrap: break-word; /* Перенос слов */
-    bottom: 200px;     /* Позиция снизу */
+    bottom: 250px;     /* Позиция снизу */
     left: 50%;        /* Центрирование */
     transform: translateX(-50%); /* Точное центрирование */
     padding: 5px;  /* Внутренние отступы */
