@@ -16,11 +16,11 @@ body {
 /* ########## ТЕКСТ В ВЕРХНЕМ ПРАВОМ УГЛУ ########## */
 .top-link {
     position: fixed; /* Фиксированное позиционирование */
-    top: 20px;       /* Отступ сверху */
-    right: 20px;     /* Отступ справа */
+    top: 10px;       /* Отступ сверху */
+    right: 5px;     /* Отступ справа */
     color: #fff;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 10px;
     background: rgba(0,0,0,0.5);
     padding: 8px 15px;
     border-radius: 20px;
@@ -28,7 +28,7 @@ body {
 }
 
 .top-link:hover {
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.3);
 }
 
 /* ########## ИНДИКАТОР УРОВНЯ ########## */
