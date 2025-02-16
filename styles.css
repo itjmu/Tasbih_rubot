@@ -33,8 +33,8 @@ body {
 
 /* ########## ИНДИКАТОР УРОВНЯ ########## */
 .level-container {
-    width: 45%; /* Ширина индикатора */
-    margin-bottom: 20px; /* Отступ снизу */
+    width: 40%; /* Ширина индикатора */
+    margin-bottom: 15px; /* Отступ снизу */
     margin-left: 20px;  /* Фиксированный отступ слева */
     margin-right: auto; /* Прижимаем к левому краю */
 }
@@ -42,7 +42,7 @@ body {
 .level-bar {
     height: 20px; /* Высота индикатора */
     background: rgba(255,255,255,0.1); /* Цвет фона */
-    border-radius: 10px; /* Скругление углов */
+    border-radius: 15px; /* Скругление углов */
     position: relative;
     overflow: hidden;
 }
@@ -56,9 +56,9 @@ body {
 
 .level-text {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 30%;
+    left: 30%;
+    transform: translate(-30%, -30%);
     font-weight: bold;
     color: #aaa; /* Цвет текста */
     font-size: 13px; /* Размер текста */
