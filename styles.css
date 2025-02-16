@@ -47,7 +47,7 @@ body {
 /* ########## ОСНОВНОЙ ИНДИКАТОР ########## */
 .main-progress-container {
     width: 90%; /* Ширина индикатора */
-    margin-bottom: 200px; /* Отступ снизу */
+    margin-bottom: 300px; /* Отступ снизу */
 }
 
 .main-progress-bar {
