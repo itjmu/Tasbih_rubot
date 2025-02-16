@@ -94,10 +94,22 @@ body {
     color: #4CAF50; /* Цвет текста */
     font-weight: bold;
     text-shadow: 0 0 5px rgba(76,175,80,0.5); /* Тень текста */
-    bottom: 290px; /* Позиция снизу */
     left: 50%; /* Центрирование */
     transform: translateX(-50%); /* Точное центрирование */
     transition: font-size 0.2s; /* Анимация текста */
+
+    /* Новые свойства для переноса текста */
+    width: 90%; /* Ширина текстового блока */
+    max-width: 300px; /* Максимальная ширина */
+    text-align: center;   /* Центрирование */
+    white-space: normal; /* Разрешить перено */
+    word-wrap: break-word; /* Перенос слов */
+    bottom: 300px;     /* Позиция снизу */
+    left: 50%;        /* Центрирование */
+    transform: translateX(-50%); /* Точное центрирование */
+    padding: 10px;  /* Внутренние отступы */
+    background: rgba(0, 0, 0, 0.5);  /* Фон для лучшей читаемости */
+    border-radius: 10px; /* Скр уг */
 }
 
 .zikr-button:active {
