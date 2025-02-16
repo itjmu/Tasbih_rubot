@@ -17,6 +17,8 @@ body {
 .level-container {
     width: 50%; /* Ширина индикатора */
     margin-bottom: 40px; /* Отступ снизу */
+    margin-left: 20px;  /* Фиксированный отступ слева */
+    margin-right: auto; /* Прижимаем к левому краю */
 }
 
 .level-bar {
