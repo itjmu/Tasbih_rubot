@@ -1,4 +1,112 @@
-/* ########## ОСНОВНЫЕ НАСТРОЙКИ ########## */
+/* Стили меню */
+.menu-btn {
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1001;
+    color: white;
+    text-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+/* Добавьте в файл styles.css */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    text-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+.close-btn:hover {
+    color: #ff5555; /* Изменение цвета при наведении */
+}
+
+.sidebar {
+    position: fixed;
+    left: -60%;
+    top: 0;
+    width: 60%;
+    height: 70%;
+    background: rgba(10, 30, 40, .99);
+    box-shadow: 1px 0 8px rgba(255,255,255,0.99);
+    transition: 0.3s;
+    z-index: 1002;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.menu-header {
+    padding: 1px 40px;
+    border-bottom: 2px solid #151C24;
+    flex-shrink: 0;
+}
+
+.menu-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.menu-items li a {
+    display: block;
+    padding: 10px 30px;
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.3s;
+}
+
+.menu-items li a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.stats-container {
+    padding: 1px 10px;
+    border-top: 1px solid #102351;
+    background: rgba(0,0,0,0.2);
+}
+
+.stat-item {
+    margin: 10px 0;
+}
+
+.stat-progress {
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    margin: 5px 0;
+    overflow: hidden;
+}
+
+.stat-progress-bar {
+    height: 100%;
+    background: #4CAF50;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 3px;
+}
+
+.stat-value {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Основные стили */
 body {
     font-family: 'Arial', sans-serif;
     background-image: url('background.jpg');
@@ -13,45 +121,44 @@ body {
     color: #fff;
 }
 
-/* ########## ТЕКСТ В ВЕРХНЕМ ПРАВОМ УГЛУ ########## */
 .top-link {
-    position: fixed; /* Фиксированное позиционирование */
-    top: 10px;       /* Отступ сверху */
-    right: 5px;     /* Отступ справа */
-    color: #fff;
+    position: fixed;
+    top: 15px;
+    right: 10px;
+    color: #9900cc;
     text-decoration: none;
-    font-size: 10px;
-    background: rgba(0,0,0,0.5);
-    padding: 8px 15px;
-    border-radius: 20px;
-    z-index: 1000;   /* Поверх других элементов */
+    font-size: 13px;
+    background: rgba(0,0,0,0.2);
+    padding: 8px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    z-index: 1000;
 }
 
 .top-link:hover {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.5);
 }
 
-/* ########## ИНДИКАТОР УРОВНЯ ########## */
 .level-container {
-    width: 40%; /* Ширина индикатора */
-    margin-bottom: 15px; /* Отступ снизу */
-    margin-left: 20px;  /* Фиксированный отступ слева */
-    margin-right: auto; /* Прижимаем к левому краю */
+    width: 40%;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    margin-right: auto;
 }
 
 .level-bar {
-    height: 20px; /* Высота индикатора */
-    background: rgba(255,255,255,0.1); /* Цвет фона */
-    border-radius: 9px; /* Скругление углов */
+    height: 20px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 9px;
     position: relative;
     overflow: hidden;
 }
 
 .level-progress {
     height: 100%;
-    background: #66ffCC; /* Цвет заполнения */
+    background: #66ffCC;
     width: 0%;
-    transition: width 0.3s ease; /* Анимация изменения */
+    transition: width 0.3s ease;
 }
 
 .level-text {
@@ -60,29 +167,29 @@ body {
     left: 40%;
     transform: translate(-40%, -40%);
     font-weight: bold;
-    color: #aaa; /* Цвет текста */
-    font-size: 13px; /* Размер текста */
+    color: #aaa;
+    font-size: 13px;
 }
 
-/* ########## ОСНОВНОЙ ИНДИКАТОР ########## */
 .main-progress-container {
-    width: 90%; /* Ширина индикатора */
-    margin-bottom: 250px; /* Отступ снизу */
+    width: 90%;
+    margin-bottom: 250px;
+    transition: margin 0.3s;
 }
 
 .main-progress-bar {
-    height: 60px; /* Высота индикатора */
-    background: rgba(255,255,255,0.1); /* Цвет фона */
-    border-radius: 15px; /* Скругление углов */
+    height: 60px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
     position: relative;
     overflow: hidden;
 }
 
 .main-progress {
     height: 100%;
-    background: #4CAF50; /* Цвет заполнения */
+    background: #4CAF50;
     width: 0%;
-    transition: width 0.3s ease; /* Анимация изменения */
+    transition: width 0.3s ease;
 }
 
 .main-counter {
@@ -90,83 +197,101 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 30px; /* Размер текста */
+    font-size: 30px;
     font-weight: bold;
 }
 
-/* ########## КНОПКА ЗИКРА ########## */
 .zikr-container {
-    margin-bottom: 100px; /* Отступ снизу */
+    margin-bottom: 100px;
 }
 
 .zikr-button {
-    font-size: 170px; /* Размер эмодзи */
+    font-size: 180px;
+    top: 20%;
     cursor: pointer;
-    transition: transform 0.2s; /* Анимация нажатия */
+    transition: transform 0.2s;
     position: relative;
 }
 
 .zikr-text {
     position: absolute;
-    font-size: 20px; /* Размер текста */
-    color: #4CAF50; /* Цвет текста */
+    font-size: 19px;
+    color: #4CAF50;
     font-weight: bold;
-    text-shadow: 0 0 5px rgba(76,175,80,0.5); /* Тень текста */
-    left: 50%; /* Центрирование */
-    transform: translateX(-50%); /* Точное центрирование */
-    transition: font-size 0.2s; /* Анимация текста */
+    text-shadow: 0 0 5px rgba(76,175,80,0.5);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: font-size 0.2s;
+    width: 140%;
+    max-width: 550px;
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+    bottom: 300px;
+    padding: 3px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
 
-    /* Новые свойства для переноса текста */
-    width: 150%; /* Ширина текстового блока */
-    max-width: 550px; /* Максимальная ширина */
-    text-align: center;   /* Центрирование */
-    white-space: normal; /* Разрешить перено */
-    word-wrap: break-word; /* Перенос слов */
-    bottom: 260px;     /* Позиция снизу */
-    left: 50%;        /* Центрирование */
-    transform: translateX(-50%); /* Точное центрирование */
-    padding: 5px;  /* Внутренние отступы */
-    background: rgba(0, 0, 0, 0.5);  /* Фон для лучшей читаемости */
-    border-radius: 10px; /* Скр уг */
+.zikr-text.hidden {
+    display: none;
 }
 
 .zikr-button:active {
-    transform: scale(1.1); /* Увеличение при нажатии */
+    transform: scale(1.1);
 }
 
 .zikr-button:active .zikr-text {
-    font-size: 22px; /* Увеличение текста */
+    font-size: 21px;
 }
 
-/* ########## КНОПКА СБРОСА ########## */
 .reset-container {
     position: fixed;
-    left: 20px; /* Позиция слева */
-    bottom: 5%; /* Позиция снизу */
+    left: 20px;
+    bottom: 5%;
 }
 
 #reset {
     border: none;
-    width: 50px; /* Размер кнопки */
+    width: 50px;
     height: 50px;
-    border-radius: 50%; /* Круглая форма */
-    font-size: 24px; /* Размер эмодзи */
+    border-radius: 50%;
+    font-size: 24px;
     color: white;
     cursor: pointer;
-    transition: background 0.3s; /* Анимация фона */
+    transition: background 0.3s;
 }
 
 #reset:hover {
-    background: #c82333; /* Цвет при наведении */
+    background: #c82333;
 }
 
-/* ########## ОБЩИЙ СЧЁТ ########## */
 .total-counter {
     position: fixed;
-    bottom: 5%; /* Позиция снизу */
-    right: 20px; /* Позиция справа */
-    background: rgba(0,0,0,0.4); /* Цвет фона */
-    padding: 10px 20px; /* Внутренние отступы */
-    border-radius: 10px; /* Скругление углов */
-    font-size: 14px; /* Размер текста */
+    bottom: 5%;
+    right: 20px;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+/* Новости */
+.news-text {
+    padding: 10px;
+    color: #aaa;
+    font-size: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60%;
+        left: -60%;
+    }
+    .sidebar.active ~ .main-progress-container {
+        margin-left: 70%;
+    }
 }
