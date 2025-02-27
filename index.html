@@ -35,6 +35,22 @@
       left: 0;
     }
 
+#user-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #007bff, #6610f2);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px auto;
+    width: 80%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
     /* Стили для списка меню и ряда кнопок */
     .menu-items {
       list-style: none;
@@ -296,6 +312,9 @@
   
   <!-- Боковая панель меню -->
   <div class="sidebar" id="sidebar">
+<div id="user-container">
+    <span id="user-name"></span>
+</div>
     <!-- Список с кнопкой "Главная" -->
     <ul class="menu-items">
       <li><a href="https://t.me/Tasbih_ru/13" id="menu-home">📱 Главная</a></li>
@@ -496,6 +515,7 @@
     let lastActionTime = 0;
 
     tg.ready();
+    tg.onEvent('auth', setUserName);
     tg.expand();
     updateStats();
     updateDisplays();
@@ -507,6 +527,19 @@
       sidebar.classList.toggle('active');
       if (sidebar.classList.contains('active')) updateStats();
     }
+
+function setUserName() {
+    if (tg.initDataUnsafe?.user?.first_name) {
+        document.getElementById('user-name').textContent = `Привет, ${tg.initDataUnsafe.user.first_name}!`;
+    } else {
+        document.getElementById('user-name').textContent = "Привет, гость!";
+    }
+}
+
+// Устанавливаем имя после загрузки Telegram WebApp
+tg.ready();
+setUserName();
+tg.onEvent('auth', setUserName);
 
     // Переключение видимости зикра: скрываем не только текст, но и весь блок с эмодзи (кнопка клика)
     function toggleZikrText() {
