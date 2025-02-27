@@ -530,9 +530,9 @@
 
 function setUserName() {
     if (tg.initDataUnsafe?.user?.first_name) {
-        document.getElementById('user-name').textContent = `Привет, ${tg.initDataUnsafe.user.first_name}!`;
+        document.getElementById('user-name').textContent = `🟢, ${tg.initDataUnsafe.user.first_name}!`;
     } else {
-        document.getElementById('user-name').textContent = "Привет, гость!";
+        document.getElementById('user-name').textContent = "👤⁉️";
     }
 }
 
