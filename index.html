@@ -431,15 +431,15 @@ Created in 28.02.2025 for <a href="https://t.me/Tasbih_rubot">@Tasbih_rubot</a>
     // Обновлённый список зикров с переводами
     const SETTINGS = {
       zikrList: [
-        { ru: "Субханаллах\n(Пречист Аллах)", en: "Subḥānallāh<br>(Glory be to Allah)", ar: "سُبْحَانَ اللَّهِ" },
-        { ru: "Альхамдулиллях \n (Хвала Аллаху)", en: "Al-ḥamdu lillāh \n (Praise be to Allah)", ar: "الحمد لله" },
-        { ru: "Аллаху Акбар \n (Аллах Велик)", en: "Allāhu Akbar \n (Allah is the Greatest)", ar: "الله أكبر" },
-        { ru: "Ля иляха илля-Ллах \n (Нет божества, кроме Аллаха)", en: "Lā ilāha illa-llāh \n (There is no deity except Allah)", ar: "لا إله إلا الله" },
-        { ru: "Астагфируллах \n (Прошу прощения у Аллаха)", en: "Astaghfirullāh \n (I seek forgiveness from Allah)", ar: "أَسْتَغْفِرُ اللَّهَ" },
-        { ru: "Субханаллахи ва бихамди-хи \n (Пречист Аллах и Ему хвала)", en: "Subḥānallāhi wa biḥamdihī \n (Glory be to Allah and all praise is due to Him)", ar: "سبحان الله وبحمده" },
-        { ru: "Субханаллахи аль-Азым <br> (Пречист Аллах Великий)", en: "Subḥānallāhi al-‘Aẓīm \n (Glory be to Allah, the Most Great)", ar: "سُبْحَانَ اللَّهِ الْعَظِيمِ" },
+        { ru: "Субханаллах<br>(Пречист Аллах)", en: "Subḥānallāh<br>(Glory be to Allah)", ar: "سُبْحَانَ اللَّهِ" },
+        { ru: "Альхамдулиллях<br>(Хвала Аллаху)", en: "Al-ḥamdu lillāh<br>(Praise be to Allah)", ar: "الحمد لله" },
+        { ru: "Аллаху Акбар<br>(Аллах Велик)", en: "Allāhu Akbar<br>(Allah is the Greatest)", ar: "الله أكبر" },
+        { ru: "Ля иляха илля-Ллах<br>(Нет божества, кроме Аллаха)", en: "Lā ilāha illa-llāh<br>(There is no deity except Allah)", ar: "لا إله إلا الله" },
+        { ru: "Астагфируллах<br>(Прошу прощения у Аллаха)", en: "Astaghfirullāh<br>(I seek forgiveness from Allah)", ar: "أَسْتَغْفِرُ اللَّهَ" },
+        { ru: "Субханаллахи ва бихамди-хи<br>(Пречист Аллах и Ему хвала)", en: "Subḥānallāhi wa biḥamdihī<br>(Glory be to Allah and all praise is due to Him)", ar: "سبحان الله وبحمده" },
+        { ru: "Субханаллахи аль-Азым<br>(Пречист Аллах Великий)", en: "Subḥānallāhi al-‘Aẓīm<br>(Glory be to Allah, the Most Great)", ar: "سُبْحَانَ اللَّهِ الْعَظِيمِ" },
         { ru: "Ла илаha илла-лЛоhу ваhдаhу ла шарика лаh. Лаhул мулку ва лаhу-л haмда ва hува ъала кулли шайин Qадир",
-          en: "Lā ilāha illa-llāhu waḥdahu lā sharīka lah, lahu-l-mulku wa lahu-l-ḥamdu, wa huwa ‘alā kulli shay’in qadīr \n (There is no deity except Allah, alone, without any partner. To Him belongs sovereignty and to Him belongs all praise, and He has power over all things)",
+          en: "Lā ilāha illa-llāhu waḥdahu lā sharīka lah, lahu-l-mulku wa lahu-l-ḥamdu, wa huwa ‘alā kulli shay’in qadīr<br>(There is no deity except Allah, alone, without any partner. To Him belongs sovereignty and to Him belongs all praise, and He has power over all things)",
           ar: "لَا إِلٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ " }
       ],
       levels: [
@@ -672,7 +672,7 @@ tg.onEvent('auth', setUserName);
       if (appData.customZikrEnabled && appData.customZikr) {
         document.getElementById('zikr-text').textContent = appData.customZikr;
       } else {
-        document.getElementById('zikr-text').textContent =
+        document.getElementById('zikr-text').innerHTML =
           SETTINGS.zikrList[appData.currentZikrIndex][appData.lang];
       }
 
