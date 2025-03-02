@@ -21,8 +21,8 @@
       position: fixed;
       left: -60%;
       top: 80px;
-      width: 80%;
-      height: 80%;
+      width: 90%;
+      height: 90%;
       background: rgba(10, 30, 40, .99);
       box-shadow: 1px 0 8px rgba(255,255,255,0.99);
       transition: 0.3s;
@@ -41,9 +41,9 @@
     justify-content: center;
     background: linear-gradient(135deg, #007bff, #6610f2);
     color: white;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-size: 15px;
+    padding: 2px 5px;
+    border-radius: 8px;
+    font-size: 10px;
     font-weight: bold;
     margin: 10px auto;
     width: 80%;
@@ -82,13 +82,13 @@
 
     /* Блок статистики */
     .stats-container {
-      padding: 1px 10px;
+      padding: 1px 8px;
       border-top: 1px solid #102351;
       background: rgba(0,0,0,0.2);
     }
 
     .stat-item {
-      margin: 10px 0;
+      margin: 8px 0;
     }
 
     .stat-progress {
@@ -107,21 +107,21 @@
     }
 
     .stat-label {
-      font-size: 13px;
+      font-size: 10px;
       color: #aaa;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
     .stat-value {
-      font-size: 15px;
+      font-size: 13px;
       font-weight: bold;
     }
 
 .menu-footer {
     text-align: center;
-    font-size: 10px;
+    font-size: 9px;
     color: #888;
-    padding: 5px;
+    padding: 3px;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -202,7 +202,7 @@
 
     .main-progress-container {
       width: 85%;
-      margin-bottom: 130px;
+      margin-bottom: 100px;
       transition: margin 0.3s;
     }
 
@@ -239,7 +239,7 @@
       cursor: pointer;
       transition: transform 0.2s;
       position: relative;
-      top: 100px;
+      top: 110px;
     }
 
     .zikr-text {
@@ -276,16 +276,16 @@
 
     .reset-container {
       position: fixed;
-      left: 20px;
-      bottom: 5%;
+      left: 10px;
+      bottom: 3%;
     }
 
     #reset {
       border: none;
-      width: 5px;
-      height: 5px;
+      width: 4px;
+      height: 4px;
       border-radius: 50%;
-      font-size: 40px;
+      font-size: 30px;
       color: white;
       cursor: pointer;
       transition: background 0.3s;
@@ -296,8 +296,8 @@
 
     .total-counter {
       position: fixed;
-      bottom: 5%;
-      right: 20px;
+      bottom: 3%;
+      right: 10px;
       background: rgba(0,0,0,0.4);
       padding: 10px 20px;
       border-radius: 10px;
@@ -352,9 +352,9 @@
       <!-- Сегодняшний счет -->
       <div class="stat-item">
         <div class="stat-label" id="daily-label">📅 Сегодня (Ежедневный цель 🎯 900)</div>
-        <div class="stat-value" id="stat-daily">0</div>
-        <div class="stat-progress">
-          <div class="stat-progress-bar" id="daily-progress"></div>
+        <div class="stat-value" id="stat-daily">0</div>  <div class="stat-progress"> <div class="stat-progress-bar" id="daily-progress"></div>
+       
+          
         </div>
       </div>
       <!-- Вчерашний счет -->
