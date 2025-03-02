@@ -778,7 +778,7 @@ tg.onEvent('auth', setUserName);
       document.getElementById('total-label').textContent = translations[lang].statTotal;
       document.getElementById('last-active-label').textContent = translations[lang].statLastActive;
       document.getElementById('first-date-label').textContent = translations[lang].statFirstVisit;
-      document.getElementById('news-text').textContent = translations[lang].statNews;
+      document.getElementById('news-text').innerHTML = translations[lang].statNews;
       
       const totalCounter = document.querySelector('.total-counter');
       totalCounter.innerHTML = translations[lang].dailyCounterLabel + '<span id="today-count">' + appData.dailyCount + '</span>';
