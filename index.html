@@ -466,7 +466,7 @@ Created in 28.02.2025 for <a href="https://t.me/Tasbih_rubot">@Tasbih_rubot</a>
         statTotal: "📿 Всего (Ежемесячный цель 🎯50K)",
         statLastActive: "⏱ Последняя активность",
         statFirstVisit: "📅 Первый вход",
-        statNews: "Здесь будут отображаться хадисы Пророка (с.а.в.)",
+        statNews: "🕋 Пророк (ﷺ) сказал:<br>«Души подобны воинам! Те из них, которые узнают друг друга, объединяются, а те, которые друг друга не узнают, расходятся»<br>📌 Хадис от Айши<br>📖 Сахих аль-Бухари, Муслим",
         levelText: "Уровень {level} из 5",
         dailyCounterLabel: "Сегодня: ",
         alertResetSuccess: "Общий счет сброшен!",
@@ -506,7 +506,7 @@ Created in 28.02.2025 for <a href="https://t.me/Tasbih_rubot">@Tasbih_rubot</a>
         statTotal: "📿 الإجمالي (الهدف الشهري 🎯50K)",
         statLastActive: "⏱ آخر نشاط",
         statFirstVisit: "📅 أول دخول",
-        statNews: "سيتم عرض أحاديث النبي (صلى الله عليه وسلم) هنا",
+        statNews: "أحاديث النبي (صلى الله عليه وسلم) هنا",
         levelText: "المستوى {level} من 5",
         dailyCounterLabel: "اليوم: ",
         alertResetSuccess: "تم إعادة تعيين العدد الإجمالي!",
@@ -664,7 +664,6 @@ tg.onEvent('auth', setUserName);
         appData.yesterdayCount = appData.dailyCount;
         appData.dailyCount = 0;
         appData.lastVisitDate = today;
-appDate.newsText;
       }
 
       document.getElementById('count').textContent = appData.count;
