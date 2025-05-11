@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 
   <title>Tasbih Reward</title>
   <style>
-    /* Базовые стили для кнопки открытия меню и боковой панели */
+    /* Стили основной части (как были) */
     .menu-btn {
       position: fixed;
       top: 90px;
@@ -16,7 +16,6 @@
       color: white;
       text-shadow: 0 0 3px rgba(0,0,0,0.5);
     }
-
     .sidebar {
       position: fixed;
       left: -60%;
@@ -34,63 +33,61 @@
     .sidebar.active {
       left: 0;
     }
-
-#user-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #007bff, #6610f2);
-    color: white;
-    padding: 3px 6px;
-    border-radius: 8px;
-    font-size: 10px;
-    font-weight: bold;
-    margin: 10px auto;
-    width: 80%;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-    /* Стили для списка меню и ряда кнопок */
+    #user-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #007bff, #6610f2);
+      color: white;
+      padding: 3px 6px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: bold;
+      margin: 10px auto;
+      width: 80%;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
     .menu-items {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-
     .menu-items li a {
       display: block;
-      padding: 5px 10px;
+      padding: 4px 20px;
       text-decoration: none;
       color: #fff;
       font-size: 15px;
     }
-
     .menu-buttons-row {
       display: flex;
       justify-content: space-around;
       margin: 10px 0;
     }
-
     .menu-buttons-row button {
       background: none;
       border: none;
       font-size: 20px;
       cursor: pointer;
       color: #fff;
+      transition: background 0.3s, box-shadow 0.3s;
     }
-
-    /* Блок статистики */
+    /* Стили для активных кнопок */
+    .menu-buttons-row button.active {
+      background-color: #ffcc00;
+      color: #000;
+      box-shadow: 0 0 5px rgba(255, 204, 0, 0.8);
+      border-radius: 5px;
+    }
     .stats-container {
       padding: 1px 8px;
       border-top: 1px solid #102351;
       background: rgba(0,0,0,0.2);
     }
-
     .stat-item {
       margin: 8px 0;
     }
-
     .stat-progress {
       height: 8px;
       background: rgba(255,255,255,0.1);
@@ -98,45 +95,39 @@
       margin: 5px 0;
       overflow: hidden;
     }
-
     .stat-progress-bar {
       height: 100%;
       background: #4CAF50;
       width: 0%;
       transition: width 0.3s ease;
     }
-
     .stat-label {
       font-size: 10px;
       color: #aaa;
       margin-bottom: 2px;
     }
-
     .stat-value {
       font-size: 13px;
       font-weight: bold;
     }
-
-.menu-footer {
-    text-align: center;
-    font-size: 9px;
-    color: #888;
-    padding: 3px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-top: 1px solid #ddd;
-}
-.menu-footer a {
-    color: #007bff;
-    text-decoration: none;
-}
-.menu-footer a:hover {
-    text-decoration: underline;
-}
-
-    /* Основные стили для тела */
+    .menu-footer {
+      text-align: center;
+      font-size: 9px;
+      color: #888;
+      padding: 3px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-top: 1px solid #ddd;
+    }
+    .menu-footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .menu-footer a:hover {
+      text-decoration: underline;
+    }
     body {
       font-family: 'Arial', sans-serif;
       background-image: url('2.jpg');
@@ -150,7 +141,6 @@
       justify-content: center;
       color: #fff;
     }
-
     .top-link {
       position: fixed;
       top: 50px;
@@ -167,14 +157,12 @@
     .top-link:hover {
       background: rgba(0,0,0,0.5);
     }
-
     .level-container {
       width: 40%;
       margin-bottom: 10px;
       margin-left: 30px;
       margin-right: auto;
     }
-
     .level-bar {
       height: 20px;
       background: rgba(255,255,255,0.1);
@@ -182,14 +170,12 @@
       position: relative;
       overflow: hidden;
     }
-
     .level-progress {
       height: 100%;
       background: #66ffCC;
       width: 0%;
       transition: width 0.3s ease;
     }
-
     .level-text {
       position: absolute;
       top: 40%;
@@ -199,13 +185,11 @@
       color: #ccb209;
       font-size: 10px;
     }
-
     .main-progress-container {
       width: 85%;
       margin-bottom: 100px;
       transition: margin 0.3s;
     }
-
     .main-progress-bar {
       height: 50px;
       background: rgba(255,255,255,0.1);
@@ -213,14 +197,12 @@
       position: relative;
       overflow: hidden;
     }
-
     .main-progress {
       height: 100%;
       background: #4CAF50;
       width: 0%;
       transition: width 0.3s ease;
     }
-
     .main-counter {
       position: absolute;
       top: 50%;
@@ -229,11 +211,9 @@
       font-size: 30px;
       font-weight: bold;
     }
-
     .zikr-container {
       margin-bottom: 90px;
     }
-
     .zikr-button {
       font-size: 180px;
       cursor: pointer;
@@ -241,17 +221,15 @@
       position: relative;
       top: 130px;
     }
-
     .zikr-text {
       position: absolute;
-      font-size: 15px;
+      font-size: 26px;
       color: #4CAF50;
       font-weight: bold;
-      text-shadow: 0 0 5px rgba(76,175,80,0.5);
       left: 50%;
       transform: translateX(-50%);
       transition: font-size 0.2s;
-      width: 130%;
+      width: 150%;
       max-width: 540px;
       text-align: center;
       white-space: normal;
@@ -261,25 +239,20 @@
       background: rgba(0, 0, 0, 0.5);
       border-radius: 5px;
     }
-
-    /* Скрытый элемент */
     .hidden {
       display: none;
     }
-
     .zikr-button:active {
       transform: scale(1.1);
     }
     .zikr-button:active .zikr-text {
-      font-size: 17px;
+      font-size: 20px;
     }
-
     .reset-container {
       position: fixed;
       left: 10px;
       bottom: 5%;
     }
-
     #reset {
       border: none;
       width: 4px;
@@ -293,7 +266,6 @@
     #reset:hover {
       background: #c82333;
     }
-
     .total-counter {
       position: fixed;
       bottom: 5%;
@@ -303,7 +275,6 @@
       border-radius: 10px;
       font-size: 14px;
     }
-
     .news-text {
       padding: 5px;
       color: #aaa;
@@ -312,7 +283,6 @@
       border-radius: 5px;
       margin-top: 10px;
     }
-
     @media (max-width: 768px) {
       .sidebar {
         width: 80%;
@@ -321,6 +291,42 @@
       .sidebar.active ~ .main-progress-container {
         margin-left: 70%;
       }
+    }
+    /* Стили модальных окон */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2004;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 30% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+      border-radius: 10px;
+    }
+    .modal-content h3 {
+      margin-top: 0;
+    }
+    .modal-content button.option-button {
+      margin: 5px;
+      padding: 5px 5px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .modal-content input {
+      padding: 8px;
+      width: 80%;
+      margin-bottom: 10px;
     }
   </style>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -331,33 +337,32 @@
   
   <!-- Боковая панель меню -->
   <div class="sidebar" id="sidebar">
-<div id="user-container">
-    <span id="user-name"></span>
-</div>
+    <div id="user-container">
+      <span id="user-name"></span>
+    </div>
     <!-- Список с кнопкой "Главная" -->
     <ul class="menu-items">
       <li><a href="https://t.me/Tasbih_ru/13" id="menu-home">📱 Главная</a></li>
       <li><a href="https://t.me/Tasbih_ru/42" id="menu-reward">🎁 Награды</a></li>
       <li><a href="https://t.me/Tasbih_ru/44" id="menu-help">🆘 Помощь</a></li>
     </ul>
-<!-- Ряд кнопок: сброс, переключение текста, смена языка и кастомный зикр --> 
-        <div class="menu-buttons-row">
+    <!-- Ряд кнопок -->
+    <div class="menu-buttons-row">
       <button id="reset-btn" onclick="resetTotalCount()">🔄</button>
+      <button id="threshold-btn" onclick="changeThreshold()">🔢</button>
       <button id="custom-zikr-btn" onclick="customZikr()">✏️</button>
       <button id="toggle-text-btn" onclick="toggleZikrText()">👁️‍🗨️</button>
       <button id="lang-toggle-btn" onclick="toggleLanguage()">RU</button>
     </div> 
     <!-- Блок статистики -->
     <div class="stats-container">
-      <!-- Сегодняшний счет -->
       <div class="stat-item">
         <div class="stat-label" id="daily-label">📅 Сегодня (Ежедневный цель 🎯 900)</div>
         <div class="stat-value" id="stat-daily">0</div> 
- <div class="stat-progress"> 
-<div class="stat-progress-bar" id="daily-progress"></div>   
+        <div class="stat-progress"> 
+          <div class="stat-progress-bar" id="daily-progress"></div>   
         </div>
       </div>
-      <!-- Вчерашний счет -->
       <div class="stat-item">
         <div class="stat-label" id="yesterday-label">🗓️ Вчерашний счет</div>
         <div class="stat-value" id="stat-yesterday">0</div>
@@ -365,7 +370,6 @@
           <div class="stat-progress-bar" id="yesterday-progress"></div>
         </div>
       </div>
-      <!-- Общий счет -->
       <div class="stat-item">
         <div class="stat-label" id="total-label">📿 Всего (Ежемесячный цель 🎯50K)</div>
         <div class="stat-value" id="stat-total">0</div>
@@ -373,26 +377,22 @@
           <div class="stat-progress-bar" id="total-progress"></div>
         </div>
       </div>
-      <!-- Последняя активность -->
       <div class="stat-item">
         <div class="stat-label" id="last-active-label">⏱ Последняя активность</div>
         <div class="stat-value" id="stat-last-active">-</div>
       </div>
-      <!-- Первый вход -->
       <div class="stat-item">
         <div class="stat-label" id="first-date-label">📅 Первый вход</div>
         <div class="stat-value" id="stat-first-date">-</div>
       </div>
-      <!-- Новости -->
       <div class="stat-item">
-        <div class="news-text" id="news-text">🕋 Пророк (ﷺ) сказал:<br>«Души подобны воинам! Те из них, которые узнают друг друга, объединяются, а те, которые друг друга не узнают, расходятся»<br>📌 Хадис от Айши<br>📖 Сахих аль-Бухари, Муслим </div>
+        <div class="news-text" id="news-text">🕋 Пророк (ﷺ) сказал:<br>«Души подобны воинам! Те из них, которые узнают друг друга, объединяются, а те, которые друг друга не узнают, расходятся»<br>📌 Хадис от Айши<br>📖 Сахих аль-Бухари, Муслим</div>
       </div>
     </div>
-<!-- Блок с авторскими правами -->
-<div class="menu-footer">
-    ©️ Telegram WebApp: Tasbih 🤖 <br>
-Created in 28.02.2025 for <a href="https://t.me/Tasbih_rubot">@Tasbih_rubot</a>
-</div>
+    <div class="menu-footer">
+      ©️ Telegram WebApp: Tasbih 🤖 <br>
+      Created in 28.02.2025 for <a href="https://t.me/Tasbih_rubot">@Tasbih_rubot</a>
+    </div>
   </div>
 
   <!-- Остальной интерфейс приложения -->
@@ -412,7 +412,7 @@ Created in 28.02.2025 for <a href="https://t.me/Tasbih_rubot">@Tasbih_rubot</a>
     </div>
   </div>
 
-  <!-- Контейнер зикра: при переключении скрывается весь блок -->
+  <!-- Контейнер зикра -->
   <div class="zikr-container" id="zikr-container">
     <div class="zikr-button">
       📿
@@ -427,6 +427,23 @@ Created in 28.02.2025 for <a href="https://t.me/Tasbih_rubot">@Tasbih_rubot</a>
   <!-- Счетчик за сегодня -->
   <div class="total-counter">Сегодня: <span id="today-count">0</span></div>
 
+  <!-- Модальное окно для выбора кастомного зикра -->
+  <div id="modal-zikr" class="modal">
+    <div class="modal-content">
+      <h3>Выберите зикр</h3>
+      <div id="modal-zikr-options"></div>
+      <button class="option-button" onclick="closeModal('modal-zikr')">Отмена</button>
+    </div>
+  </div>
+
+  <!-- Модальное окно для выбора порога смены зикра -->
+  <div id="modal-threshold" class="modal">
+    <div class="modal-content">
+      <h3>Выберите порог смены зикра</h3>
+      <div id="modal-threshold-options"></div>
+      <button class="option-button" onclick="closeModal('modal-threshold')">Отмена</button>
+    </div>
+  </div>
   <script>
     // Обновлённый список зикров с переводами
     const SETTINGS = {
@@ -438,7 +455,7 @@ Created in 28.02.2025 for <a href="https://t.me/Tasbih_rubot">@Tasbih_rubot</a>
         { ru: "Астагфируллах<br>(Прошу прощения у Аллаха)", en: "Astaghfirullāh<br>(I seek forgiveness from Allah)", ar: "أَسْتَغْفِرُ اللَّهَ" },
         { ru: "Субханаллахи ва бихамди-хи<br>(Пречист Аллах и Ему хвала)", en: "Subḥānallāhi wa biḥamdihī<br>(Glory be to Allah and all praise is due to Him)", ar: "سبحان الله وبحمده" },
         { ru: "Субханаллахи аль-Азым<br>(Пречист Аллах Великий)", en: "Subḥānallāhi al-‘Aẓīm<br>(Glory be to Allah, the Most Great)", ar: "سُبْحَانَ اللَّهِ الْعَظِيمِ" },
-        { ru: "Ла илаha илла-лЛоhу ваhдаhу ла шарика лаh. Лаhул мулку ва лаhу-л haмда ва hува ъала кулли шайин Qадир",
+        { ru: "Ля иляха илла-лЛоhу ваhдаhу ла шарика лаh. Лаhул мулку ва лаhу-л haмда ва hува ъала кулли шайин Qадир",
           en: "Lā ilāha illa-llāhu waḥdahu lā sharīka lah, lahu-l-mulku wa lahu-l-ḥamdu, wa huwa ‘alā kulli shay’in qadīr<br>(There is no deity except Allah, alone, without any partner. To Him belongs sovereignty and to Him belongs all praise, and He has power over all things)",
           ar: "لَا إِلٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ " }
       ],
@@ -455,8 +472,8 @@ Created in 28.02.2025 for <a href="https://t.me/Tasbih_rubot">@Tasbih_rubot</a>
       ru: {
         title: "Награда Тасбиха",
         menuHome: "📱 Главная",
-        menuReward: "🎁 Награды", 
-        menuHelp: "🆘 Помощь", 
+        menuReward: "🎁 Награды",
+        menuHelp: "🆘 Помощь",
         menuResetCount: "🔄",
         menuToggleTextVisible: "👁️‍🗨️",
         menuToggleTextHidden: "🙈",
@@ -469,17 +486,17 @@ Created in 28.02.2025 for <a href="https://t.me/Tasbih_rubot">@Tasbih_rubot</a>
         statNews: "🕋 Пророк (ﷺ) сказал:<br>«Души подобны воинам! Те из них, которые узнают друг друга, объединяются, а те, которые друг друга не узнают, расходятся»<br>📌 Хадис от Айши<br>📖 Сахих аль-Бухари, Муслим",
         levelText: "Уровень {level} из 5",
         dailyCounterLabel: "Сегодня: ",
-        alertResetSuccess: "Общий счет сброшен!",
-        alertResetFailure: "Для сброса нужно более 100000 зикров!"
+        alertResetSuccess: "Настройки сброшены, счет сброшен!",
+        alertResetFailure: "Настройки сброшены, счет не сброшен (общий счет меньше 100000)"
       },
       en: {
         title: "Tasbih Reward",
         menuHome: "📱 Home",
-        menuReward: "🎁 Rewards", 
-        menuHelp: "🆘 Help",  
+        menuReward: "🎁 Rewards",
+        menuHelp: "🆘 Help",
         menuResetCount: "🔄",
-        menuToggleTextVisible: "👁️ Hide text",
-        menuToggleTextHidden: "🙈 Show text",
+        menuToggleTextVisible: "👁️",
+        menuToggleTextHidden: "🙈",
         menuChangeLang: "EN",
         statDaily: "📅 Today (Daily goal 🎯 900)",
         statYesterday: "🗓️ Yesterday's count",
@@ -489,17 +506,17 @@ Created in 28.02.2025 for <a href="https://t.me/Tasbih_rubot">@Tasbih_rubot</a>
         statNews: "Hadiths of the Prophet (PBUH) will be displayed here",
         levelText: "Level {level} of 5",
         dailyCounterLabel: "Today: ",
-        alertResetSuccess: "Total count reset!",
-        alertResetFailure: "Need more than 100000 zikr to reset!"
+        alertResetSuccess: "Settings reset, counters reset!",
+        alertResetFailure: "Settings reset, counters not reset (total count less than 100000)"
       },
       ar: {
         title: "جائزة التسبيح",
         menuHome: "الرئيسية",
-        menuReward: "🎁 الجوائز", 
-        menuHelp: "🆘 تعليمات" ,  
+        menuReward: "🎁 الجوائز",
+        menuHelp: "🆘 تعليمات",
         menuResetCount: "🔄",
-        menuToggleTextVisible: "👁️ إخفاء النص",
-        menuToggleTextHidden: "🙈 إظهار النص",
+        menuToggleTextVisible: "👁️",
+        menuToggleTextHidden: "🙈",
         menuChangeLang: "AR",
         statDaily: "📅 اليوم (الهدف اليومي 🎯 900)",
         statYesterday: "🗓️ عدد الأذكار البارحة",
@@ -509,8 +526,8 @@ Created in 28.02.2025 for <a href="https://t.me/Tasbih_rubot">@Tasbih_rubot</a>
         statNews: "أحاديث النبي (صلى الله عليه وسلم) هنا",
         levelText: "المستوى {level} من 5",
         dailyCounterLabel: "اليوم: ",
-        alertResetSuccess: "تم إعادة تعيين العدد الإجمالي!",
-        alertResetFailure: "يجب أن يكون العدد الإجمالي أكثر من 100000 للتمكن من إعادة التعيين!"
+        alertResetSuccess: "تم إعادة تعيين الإعدادات، وتم إعادة تعيين العدد!",
+        alertResetFailure: "تم إعادة تعيين الإعدادات، ولكن لم يُعاد تعيين العدد (العدد أقل من 100000)"
       }
     };
 
@@ -526,8 +543,9 @@ Created in 28.02.2025 for <a href="https://t.me/Tasbih_rubot">@Tasbih_rubot</a>
       lastActive: null,
       isZikrTextVisible: true,
       lang: "ru",
-      customZikr: "",            // Новое поле для пользовательского зикра
-      customZikrEnabled: false   // Флаг, включен ли кастомный зикр
+      customZikr: "",
+      customZikrEnabled: false,
+      changeZikrAfter: 33
     };
 
     const tg = window.Telegram.WebApp;
@@ -552,23 +570,21 @@ Created in 28.02.2025 for <a href="https://t.me/Tasbih_rubot">@Tasbih_rubot</a>
       if (sidebar.classList.contains('active')) updateStats();
     }
 
-function setUserName() {
-    if (tg.initDataUnsafe?.user?.first_name) {
+    function setUserName() {
+      if (tg.initDataUnsafe?.user?.first_name) {
         document.getElementById('user-name').textContent = `🟢  ${tg.initDataUnsafe.user.first_name}`;
-    } else {
+      } else {
         document.getElementById('user-name').textContent = "👤⁉️";
+      }
     }
-}
 
-// Устанавливаем имя после загрузки Telegram WebApp
-tg.ready();
-setUserName();
-tg.onEvent('auth', setUserName);
+    tg.ready();
+    setUserName();
+    tg.onEvent('auth', setUserName);
 
-    // Переключение видимости зикра: скрываем не только текст, но и весь блок с эмодзи (кнопка клика)
+    // Переключение видимости зикра
     function toggleZikrText() {
       appData.isZikrTextVisible = !appData.isZikrTextVisible;
-      // Скрываем/показываем блок с зикром целиком
       document.getElementById('zikr-container').classList.toggle('hidden', !appData.isZikrTextVisible);
       updateToggleTextBtn();
       toggleMenu();
@@ -585,40 +601,169 @@ tg.onEvent('auth', setUserName);
       }
     }
 
-    // Сброс общего счёта с отображением переведённого сообщения
+    // Функция сброса настроек
     function resetTotalCount() {
-      const lang = appData.lang;
-      if (appData.totalCount > 100000) {
+      // Сброс настроек: сбрасываем выбранный текст зикра, порог, язык и видимость зикра
+      appData.customZikr = "";
+      appData.customZikrEnabled = false;
+      appData.changeZikrAfter = 33;
+      appData.isZikrTextVisible = true;
+      document.getElementById('zikr-container').classList.remove('hidden');
+
+      // Сброс подсветки активных кнопок
+      document.getElementById('custom-zikr-btn').classList.remove('active');
+      document.getElementById('threshold-btn').classList.remove('active');
+
+      if (appData.totalCount >= 100000) {
         appData.totalCount = 0;
-        updateDisplays();
-        saveData();
-        alert(translations[lang].alertResetSuccess);
-      } else {
-        alert(translations[lang].alertResetFailure);
+        appData.count = 0;
+        appData.dailyCount = 0;
+        appData.currentZikrIndex = 0;
       }
+      updateDisplays();
+      updateToggleTextBtn(); 
+      saveData();
       toggleMenu();
     }
 
-    // Функция для установки/отключения кастомного зикра
+    // Функция для выбора кастомного зикра через модальное окно
     function customZikr() {
+      const customBtn = document.getElementById('custom-zikr-btn');
       if (appData.customZikrEnabled) {
-        // Если кастомный зикр уже включён, спрашиваем, хочет ли пользователь его отключить
-        if (confirm("Вы хотите отключить свой зикр и вернуть стандартные зикры?")) {
-          appData.customZikrEnabled = false;
-          appData.customZikr = "";
-          updateDisplays();
-          saveData();
-        }
+        appData.customZikrEnabled = false;
+        appData.customZikr = "";
+        customBtn.classList.remove('active');
+        updateDisplays();
+        saveData();
       } else {
-        // Если кастомный зикр не установлен, запрашиваем его ввод
-        let customText = prompt("Введите ваше слово зикра:");
-        if (customText && customText.trim() !== "") {
-          appData.customZikr = customText.trim();
+        openZikrModal();
+      }
+    }
+
+    function openZikrModal() {
+      const container = document.getElementById('modal-zikr-options');
+      container.innerHTML = "";
+      const lang = appData.lang;
+      const defaultOptions = SETTINGS.zikrList.map(item => item[lang].replace(/<br>.*/, ""));
+      defaultOptions.forEach((option) => {
+        const btn = document.createElement('button');
+        btn.className = "option-button";
+        btn.textContent = option;
+        btn.onclick = function() {
+          appData.customZikr = option;
           appData.customZikrEnabled = true;
+          document.getElementById('custom-zikr-btn').classList.add('active');
           updateDisplays();
           saveData();
+          closeModal('modal-zikr');
+        };
+        container.appendChild(btn);
+      });
+      const customBtn = document.createElement('button');
+      customBtn.className = "option-button";
+      customBtn.textContent = "Свой вариант";
+      customBtn.onclick = function() {
+        openCustomZikrInput();
+      };
+      container.appendChild(customBtn);
+      openModal('modal-zikr');
+    }
+
+    function openCustomZikrInput() {
+      const container = document.getElementById('modal-zikr-options');
+      container.innerHTML = "";
+      const input = document.createElement('input');
+      input.type = "text";
+      input.placeholder = "Введите свое слово зикра";
+      container.appendChild(input);
+      const saveBtn = document.createElement('button');
+      saveBtn.className = "option-button";
+      saveBtn.textContent = "Сохранить";
+      saveBtn.onclick = function() {
+        if (input.value && input.value.trim() !== "") {
+          appData.customZikr = input.value.trim();
+          appData.customZikrEnabled = true;
+          document.getElementById('custom-zikr-btn').classList.add('active');
+          updateDisplays();
+          saveData();
+          closeModal('modal-zikr');
+        } else {
+          alert("Введите корректное значение.");
         }
+      };
+      container.appendChild(saveBtn);
+    }
+
+    // Функция для выбора порога смены зикра через модальное окно
+    function changeThreshold() {
+      const DEFAULT_THRESHOLD = 33;
+      if (appData.changeZikrAfter !== DEFAULT_THRESHOLD) {
+        appData.changeZikrAfter = DEFAULT_THRESHOLD;
+        document.getElementById('threshold-btn').classList.remove('active');
+        saveData();
+        updateDisplays();
+        return;
       }
+      openThresholdModal();
+    }
+
+    function openThresholdModal() {
+      const container = document.getElementById('modal-threshold-options');
+      container.innerHTML = "";
+      const options = [1, 3, 5, 10, 11, 33, 34, 40, 66, 70, 80, 99, 100, 1000];
+      options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = "option-button";
+        btn.textContent = opt;
+        btn.onclick = function() {
+          appData.changeZikrAfter = opt;
+          document.getElementById('threshold-btn').classList.add('active');
+          saveData();
+          updateDisplays();
+          closeModal('modal-threshold');
+        };
+        container.appendChild(btn);
+      });
+      const customBtn = document.createElement('button');
+      customBtn.className = "option-button";
+      customBtn.textContent = "Свой вариант";
+      customBtn.onclick = function() {
+        openCustomThresholdInput();
+      };
+      container.appendChild(customBtn);
+      openModal('modal-threshold');
+    }
+
+    function openCustomThresholdInput() {
+      const container = document.getElementById('modal-threshold-options');
+      container.innerHTML = "";
+      const input = document.createElement('input');
+      input.type = "number";
+      input.placeholder = "Введите порог смены зикра";
+      container.appendChild(input);
+      const saveBtn = document.createElement('button');
+      saveBtn.className = "option-button";
+      saveBtn.textContent = "Сохранить";
+      saveBtn.onclick = function() {
+        let val = parseInt(input.value, 10);
+        if (!isNaN(val) && val > 0) {
+          appData.changeZikrAfter = val;
+          document.getElementById('threshold-btn').classList.add('active');
+          saveData();
+          updateDisplays();
+          closeModal('modal-threshold');
+        } else {
+          alert("Введите корректное значение.");
+        }
+      };
+      container.appendChild(saveBtn);
+    }
+
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = "block";
+    }
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
     }
 
     // Обновление статистики
@@ -626,20 +771,16 @@ tg.onEvent('auth', setUserName);
       const dailyProgress = (appData.dailyCount / 900) * 100;
       document.getElementById('daily-progress').style.width = `${Math.min(dailyProgress, 100)}%`;
       document.getElementById('stat-daily').textContent = appData.dailyCount;
-
       document.getElementById('stat-yesterday').textContent = appData.yesterdayCount;
       document.getElementById('yesterday-progress').style.width = `${Math.min((appData.yesterdayCount / 900) * 100, 100)}%`;
-
       document.getElementById('stat-total').textContent = appData.totalCount;
       document.getElementById('total-progress').style.width = `${Math.min((appData.totalCount / 50000) * 100, 100)}%`;
-
       document.getElementById('stat-first-date').textContent =
         new Date(appData.firstVisitDate).toLocaleDateString(appData.lang, {
           day: 'numeric',
           month: 'long',
           year: 'numeric'
         });
-
       document.getElementById('stat-last-active').textContent =
         new Date().toLocaleDateString(appData.lang, {
           day: 'numeric',
@@ -657,7 +798,7 @@ tg.onEvent('auth', setUserName);
       updateStats();
     }
 
-    // Обновление отображения счетчиков и зикра с переводом
+    // Обновление отображения счетчиков и зикра
     function updateDisplays() {
       const today = new Date().toLocaleDateString();
       if (appData.lastVisitDate !== today) {
@@ -665,19 +806,16 @@ tg.onEvent('auth', setUserName);
         appData.dailyCount = 0;
         appData.lastVisitDate = today;
       }
-
       document.getElementById('count').textContent = appData.count;
       document.getElementById('today-count').textContent = appData.dailyCount;
-      // Если кастомный зикр включён, используем его, иначе стандартный зикр
       if (appData.customZikrEnabled && appData.customZikr) {
         document.getElementById('zikr-text').textContent = appData.customZikr;
       } else {
         document.getElementById('zikr-text').innerHTML =
           SETTINGS.zikrList[appData.currentZikrIndex][appData.lang];
       }
-
-      document.querySelector('.main-progress').style.width = `${(appData.count / 33) * 100}%`;
-
+      document.querySelector('.main-progress').style.width = `${(appData.count / appData.changeZikrAfter) * 100}%`;
+      document.querySelector('.main-counter').innerHTML = `<span id="count">${appData.count}</span>/${appData.changeZikrAfter}`;
       const levelProgress = calculateLevelProgress();
       document.querySelector('.level-progress').style.width = `${levelProgress}%`;
     }
@@ -690,31 +828,26 @@ tg.onEvent('auth', setUserName);
       return ((appData.totalCount - prevLevel.required) / (currentLevel.required - prevLevel.required)) * 100 || 100;
     }
 
-    // Обработчик кликов (учёт интервала между действиями)
+    // Обработчик кликов
     function handleClick() {
       const now = Date.now();
       if (now - lastActionTime < ACTION_INTERVAL) return;
       lastActionTime = now;
-
       if (document.getElementById('sidebar').classList.contains('active')) {
         toggleMenu();
       }
-
       appData.count++;
       appData.totalCount++;
       appData.dailyCount++;
-
-      if (appData.count === 33) {
+      if (appData.count >= appData.changeZikrAfter) {
         appData.count = 0;
         appData.currentZikrIndex = (appData.currentZikrIndex + 1) % SETTINGS.zikrList.length;
       }
-
       updateDisplays();
       updateStats();
       saveData();
     }
 
-    // Обработчики свайпов
     function handleSwipe(e) {
       const touchEndX = e.changedTouches[0].clientX;
       const touchEndY = e.changedTouches[0].clientY;
@@ -724,13 +857,10 @@ tg.onEvent('auth', setUserName);
         handleClick();
       }
     }
-
     function handleTouchStart(e) {
       touchStartX = e.touches[0].clientX;
       touchStartY = e.touches[0].clientY;
     }
-
-    // Обработчик кнопки сброса (старый, оставляем для дополнительного сброса)
     document.getElementById('reset').addEventListener('click', () => {
       if (appData.totalCount > 100) {
         appData.totalCount--;
@@ -740,8 +870,6 @@ tg.onEvent('auth', setUserName);
       updateDisplays();
       saveData();
     });
-
-    // Добавляем глобальные обработчики кликов и свайпов
     document.addEventListener('click', (e) => {
       if (!e.target.closest('#reset') && !e.target.closest('.menu-btn')) {
         handleClick();
@@ -759,35 +887,26 @@ tg.onEvent('auth', setUserName);
       saveData();
       updateLanguage();
     }
-
-    // Обновление всех текстов согласно выбранному языку
     function updateLanguage() {
       const lang = appData.lang;
       document.title = translations[lang].title;
       document.getElementById('menu-home').textContent = translations[lang].menuHome;
       document.getElementById('menu-reward').textContent = translations[lang].menuReward;
       document.getElementById('menu-help').textContent = translations[lang].menuHelp;
-      
-      // Обновляем кнопки ряда
       document.getElementById('reset-btn').textContent = translations[lang].menuResetCount;
       updateToggleTextBtn();
       document.getElementById('lang-toggle-btn').textContent = translations[lang].menuChangeLang;
-      
       document.getElementById('daily-label').textContent = translations[lang].statDaily;
       document.getElementById('yesterday-label').textContent = translations[lang].statYesterday;
       document.getElementById('total-label').textContent = translations[lang].statTotal;
       document.getElementById('last-active-label').textContent = translations[lang].statLastActive;
       document.getElementById('first-date-label').textContent = translations[lang].statFirstVisit;
       document.getElementById('news-text').innerHTML = translations[lang].statNews;
-      
       const totalCounter = document.querySelector('.total-counter');
       totalCounter.innerHTML = translations[lang].dailyCounterLabel + '<span id="today-count">' + appData.dailyCount + '</span>';
-      
-      // Обновляем текст уровня
       const levelElem = document.getElementById('level').textContent;
       document.getElementById('level-text').innerHTML = translations[lang].levelText.replace("{level}", '<span id="level">' + levelElem + '</span>');
     }
-
     function init() {
       const today = new Date().toLocaleDateString();
       if (appData.lastVisitDate !== today) {
@@ -797,7 +916,6 @@ tg.onEvent('auth', setUserName);
         saveData();
       }
     }
-
     init();
   </script>
 </body>
